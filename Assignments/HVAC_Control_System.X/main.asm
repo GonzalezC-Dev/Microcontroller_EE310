@@ -123,20 +123,20 @@ START:
     BTFSS   STATUS, 0   ; if C is clear, refTemp < 10
     GOTO    ERROR_STATE ; out of range = ERROR
 
-    MOVLW   50		; load upper limit (50 deg celsius)
+    MOVLW   51		; load upper limit (50 deg celsius)
     SUBWF   refTemp, 0  ; refTemp - 50
     BTFSC   STATUS, 0   ; if C is set, refTemp > 50
     GOTO    ERROR_STATE	; out of range = ERROR
 
 ;---------------------
-; Validate measuredTemp Range (-10 ? measuredTemp ? 60)
+; Validate measuredTemp Range (-10 measuredTemp 60)
 ;---------------------
     BTFSC   measuredTemp,7   ; check if negative
     GOTO    NEG_CHECK
 
-    MOVLW   50		    ; load upper limit (50 deg celsius)
-    SUBWF   measuredTemp, 0 ; refTemp - 50
-    BTFSC   STATUS, 0	    ; if C is set, refTemp > 50
+    MOVLW   61		    ; load upper limit (60 deg celsius)
+    SUBWF   measuredTemp, 0 ; refTemp - 60
+    BTFSC   STATUS, 0	    ; if C is set, refTemp > 60
     GOTO    ERROR_STATE	    ; out of range = ERROR
     GOTO    CONT_PROG
 
