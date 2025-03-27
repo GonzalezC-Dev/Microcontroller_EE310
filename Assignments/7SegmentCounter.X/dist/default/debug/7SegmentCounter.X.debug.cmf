@@ -20,7 +20,7 @@ config CONFIG 4 300000 300000 A 1 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 60-FFF 1
+RAM 60-1FFF 1
 SFR 3800-3FFF 1
 BANK0 60-FF 1
 BANK1 100-1FF 1
@@ -32,21 +32,39 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 2CE-FFFF 1
+CONST 2CE-1FFFF 1
 IDLOC 200000-20000F 1
-SMALLCONST 1000-FFFF 1
-CODE 2CE-FFFF 1
+SMALLCONST 2000-FFFF 1
+SMALLCONST 12000-1FFFF 1
+CODE 2CE-1FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DFF 1
 BANK14 E00-EFF 1
 BANK15 F00-FFF 1
-BIGRAM 2CE-FFF 1
+BANK16 1000-10FF 1
+BANK17 1100-11FF 1
+BANK18 1200-12FF 1
+BANK19 1300-13FF 1
+BANK20 1400-14FF 1
+BANK21 1500-15FF 1
+BANK22 1600-16FF 1
+BANK23 1700-17FF 1
+BANK24 1800-18FF 1
+BANK25 1900-19FF 1
+BANK26 1A00-1AFF 1
+BANK27 1B00-1BFF 1
+BANK28 1C00-1CFF 1
+BANK29 1D00-1DFF 1
+BANK30 1E00-1EFF 1
+BANK31 1F00-1FFF 1
+BIGRAM 2CE-1FFF 1
 BIGSFR 3800-3FFF 1
 COMRAM 0-5F 1
 EEDATA 310000-3103FF 1
-MEDIUMCONST 1000-FFFF 1
+MEDIUMCONST 2000-FFFF 1
+MEDIUMCONST 12000-1FFFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -186,6 +204,22 @@ __Hudata_bank12 0 0 ABS 0 udata_bank12 -
 __Hudata_bank13 0 0 ABS 0 udata_bank13 -
 __Hudata_bank14 0 0 ABS 0 udata_bank14 -
 __Hudata_bank15 0 0 ABS 0 udata_bank15 -
+__Hudata_bank16 0 0 ABS 0 udata_bank16 -
+__Hudata_bank17 0 0 ABS 0 udata_bank17 -
+__Hudata_bank18 0 0 ABS 0 udata_bank18 -
+__Hudata_bank19 0 0 ABS 0 udata_bank19 -
+__Hudata_bank20 0 0 ABS 0 udata_bank20 -
+__Hudata_bank21 0 0 ABS 0 udata_bank21 -
+__Hudata_bank22 0 0 ABS 0 udata_bank22 -
+__Hudata_bank23 0 0 ABS 0 udata_bank23 -
+__Hudata_bank24 0 0 ABS 0 udata_bank24 -
+__Hudata_bank25 0 0 ABS 0 udata_bank25 -
+__Hudata_bank26 0 0 ABS 0 udata_bank26 -
+__Hudata_bank27 0 0 ABS 0 udata_bank27 -
+__Hudata_bank28 0 0 ABS 0 udata_bank28 -
+__Hudata_bank29 0 0 ABS 0 udata_bank29 -
+__Hudata_bank30 0 0 ABS 0 udata_bank30 -
+__Hudata_bank31 0 0 ABS 0 udata_bank31 -
 isa$xinst 0 0 ABS 0 - build/default/debug/main.o
 __Hedata 0 0 ABS 0 edata -
 __Hudata 0 0 ABS 0 udata -
@@ -206,6 +240,22 @@ __Ludata_bank12 0 0 ABS 0 udata_bank12 -
 __Ludata_bank13 0 0 ABS 0 udata_bank13 -
 __Ludata_bank14 0 0 ABS 0 udata_bank14 -
 __Ludata_bank15 0 0 ABS 0 udata_bank15 -
+__Ludata_bank16 0 0 ABS 0 udata_bank16 -
+__Ludata_bank17 0 0 ABS 0 udata_bank17 -
+__Ludata_bank18 0 0 ABS 0 udata_bank18 -
+__Ludata_bank19 0 0 ABS 0 udata_bank19 -
+__Ludata_bank20 0 0 ABS 0 udata_bank20 -
+__Ludata_bank21 0 0 ABS 0 udata_bank21 -
+__Ludata_bank22 0 0 ABS 0 udata_bank22 -
+__Ludata_bank23 0 0 ABS 0 udata_bank23 -
+__Ludata_bank24 0 0 ABS 0 udata_bank24 -
+__Ludata_bank25 0 0 ABS 0 udata_bank25 -
+__Ludata_bank26 0 0 ABS 0 udata_bank26 -
+__Ludata_bank27 0 0 ABS 0 udata_bank27 -
+__Ludata_bank28 0 0 ABS 0 udata_bank28 -
+__Ludata_bank29 0 0 ABS 0 udata_bank29 -
+__Ludata_bank30 0 0 ABS 0 udata_bank30 -
+__Ludata_bank31 0 0 ABS 0 udata_bank31 -
 __Lconfig 0 0 CONFIG 4 config -
 isa$std 1 0 ABS 0 - build/default/debug/main.o
 __Lspace_0 0 0 ABS 0 - -

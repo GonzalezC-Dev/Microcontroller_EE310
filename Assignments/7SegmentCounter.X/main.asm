@@ -37,9 +37,9 @@
 #include <xc.inc>
     
 ; === Program Inputs ===
-Inner_loop  equ 2 // in decimal
-Middle_loop equ	2
-Outer_loop  equ 2
+Inner_loop  equ 255 // in decimal
+Middle_loop equ	255
+Outer_loop  equ 4
   
 ; === Program Constants ===
 REG10   equ     10h   // in HEX

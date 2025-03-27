@@ -84,7 +84,7 @@ ifneq ($(INFORMATION_MESSAGE), )
 endif
 	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/7SegmentCounter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
-MP_PROCESSOR_OPTION=PIC18F46K42
+MP_PROCESSOR_OPTION=PIC18F47K42
 FINAL_IMAGE_NAME_MINUS_EXTENSION=${DISTDIR}/7SegmentCounter.X.${IMAGE_TYPE}
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: pic-as-assembler
@@ -92,7 +92,7 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/main.o: main.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_AS} -mcpu=PIC18F46K42 -c \
+	${MP_AS} -mcpu=PIC18F47K42 -c \
 	-o ${OBJECTDIR}/main.o \
 	main.asm \
 	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
@@ -101,7 +101,7 @@ else
 ${OBJECTDIR}/main.o: main.asm  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_AS} -mcpu=PIC18F46K42 -c \
+	${MP_AS} -mcpu=PIC18F47K42 -c \
 	-o ${OBJECTDIR}/main.o \
 	main.asm \
 	  -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
@@ -113,13 +113,13 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${DISTDIR}/7SegmentCounter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} ${DISTDIR} 
-	${MP_LD} -mcpu=PIC18F46K42 ${OBJECTFILES_QUOTED_IF_SPACED} \
+	${MP_LD} -mcpu=PIC18F47K42 ${OBJECTFILES_QUOTED_IF_SPACED} \
 	-o ${DISTDIR}/7SegmentCounter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
 	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex
 else
 ${DISTDIR}/7SegmentCounter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} ${DISTDIR} 
-	${MP_LD} -mcpu=PIC18F46K42 ${OBJECTFILES_QUOTED_IF_SPACED} \
+	${MP_LD} -mcpu=PIC18F47K42 ${OBJECTFILES_QUOTED_IF_SPACED} \
 	-o ${DISTDIR}/7SegmentCounter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
 	  -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex
 endif
