@@ -29,19 +29,19 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"63 C:\Users\chris\MPLABXProjects\Calculator.X\main.c
+"60 C:\Users\chris\MPLABXProjects\Calculator.X\main.c
 [v _setup setup `(v  1 e 1 0 ]
-"83
+"80
 [v _getKeyPressed getKeyPressed `(uc  1 e 1 0 ]
-"117
+"119
 [v _resetAll resetAll `(v  1 e 1 0 ]
-"128
+"133
 [v _displayOnLEDs displayOnLEDs `(v  1 e 1 0 ]
-"135
+"143
 [v _calculate calculate `(v  1 e 1 0 ]
-"148
+"167
 [v _handleInput handleInput `(v  1 e 1 0 ]
-"186
+"212
 [v _main main `(v  1 e 1 0 ]
 "8513 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f47k42.h
 [v _ANSELB ANSELB `VEuc  1 e 1 @14928 ]
@@ -73,54 +73,54 @@
 [v _PORTBbits PORTBbits `VES47  1 e 1 @16331 ]
 "46942
 [v _PORTD PORTD `VEuc  1 e 1 @16333 ]
-"110 C:\Users\chris\MPLABXProjects\Calculator.X\main.c
+"107 C:\Users\chris\MPLABXProjects\Calculator.X\main.c
 [v _X_Input_REG X_Input_REG `i  1 e 2 0 ]
-"111
+"108
 [v _Y_Input_REG Y_Input_REG `i  1 e 2 0 ]
-"112
+"109
 [v _Display_Result_REG Display_Result_REG `i  1 e 2 0 ]
-"113
+"110
 [v _Operation_REG Operation_REG `uc  1 e 1 0 ]
-"114
+"111
 [v _digitCount digitCount `i  1 e 2 0 ]
-"115
+"112
 [v _isSecond isSecond `i  1 e 2 0 ]
-"186
+"212
 [v _main main `(v  1 e 1 0 ]
 {
-"191
+"217
 [v main@key key `uc  1 a 1 25 ]
-"198
+"224
 } 0
-"63
+"60
 [v _setup setup `(v  1 e 1 0 ]
 {
-"75
+"72
 } 0
-"148
+"167
 [v _handleInput handleInput `(v  1 e 1 0 ]
 {
 [v handleInput@key key `uc  1 p 1 wreg ]
 [v handleInput@key key `uc  1 p 1 wreg ]
-"150
+"169
 [v handleInput@key key `uc  1 p 1 12 ]
-"184
+"203
 } 0
-"117
+"119
 [v _resetAll resetAll `(v  1 e 1 0 ]
 {
-"125
+"127
 } 0
-"135
+"143
 [v _calculate calculate `(v  1 e 1 0 ]
 {
-"146
+"157
 } 0
-"128
+"133
 [v _displayOnLEDs displayOnLEDs `(v  1 e 1 0 ]
 {
 [v displayOnLEDs@value value `i  1 p 2 0 ]
-"132
+"137
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -135,18 +135,18 @@
 [v ___awdiv@divisor divisor `i  1 p 2 2 ]
 "41
 } 0
-"83 C:\Users\chris\MPLABXProjects\Calculator.X\main.c
+"80 C:\Users\chris\MPLABXProjects\Calculator.X\main.c
 [v _getKeyPressed getKeyPressed `(uc  1 e 1 0 ]
 {
-"94
+"91
 [v getKeyPressed@row row `i  1 a 2 21 ]
-"84
+"81
 [v getKeyPressed@keys keys `[4][4]uc  1 a 16 1 ]
-"92
+"89
 [v getKeyPressed@row_values row_values `[4]uc  1 a 4 17 ]
-"83
-[v getKeyPressed@F16767 F16767 `[4][4]uc  1 s 16 F16767 ]
-"84
-[v getKeyPressed@F16771 F16771 `[4]uc  1 s 4 F16771 ]
-"107
+"80
+[v getKeyPressed@F16022 F16022 `[4][4]uc  1 s 16 F16022 ]
+"81
+[v getKeyPressed@F16026 F16026 `[4]uc  1 s 4 F16026 ]
+"104
 } 0

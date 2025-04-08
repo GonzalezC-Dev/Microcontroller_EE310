@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Tue Apr 08 11:16:33 2025
+                                                                                               Tue Apr 08 11:40:29 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	18F47K42
@@ -856,7 +856,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    842   002510                     __pidataCOMRAM:
    843                           	callstack 0
    844                           
-   845                           ;initializer for getKeyPressed@F16767
+   845                           ;initializer for getKeyPressed@F16022
    846   002510  31                 	db	49
    847   002511  32                 	db	50
    848   002512  33                 	db	51
@@ -874,7 +874,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    860   00251E  23                 	db	35
    861   00251F  44                 	db	68
    862                           
-   863                           ;initializer for getKeyPressed@F16771
+   863                           ;initializer for getKeyPressed@F16026
    864   002520  FE                 	db	254
    865   002521  FD                 	db	253
    866   002522  FB                 	db	251
@@ -955,10 +955,10 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
    941                           	psect	dataCOMRAM
    942   00001B                     __pdataCOMRAM:
    943                           	callstack 0
-   944   00001B                     getKeyPressed@F16767:
+   944   00001B                     getKeyPressed@F16022:
    945                           	callstack 0
    946   00001B                     	ds	16
-   947   00002B                     getKeyPressed@F16771:
+   947   00002B                     getKeyPressed@F16026:
    948                           	callstack 0
    949   00002B                     	ds	4
    950                           
@@ -1038,7 +1038,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1024 ;;
   1025 ;; *************** function _main *****************
   1026 ;; Defined at:
-  1027 ;;		line 186 in file "main.c"
+  1027 ;;		line 212 in file "main.c"
   1028 ;; Parameters:    Size  Location     Type
   1029 ;;		None
   1030 ;; Auto vars:     Size  Location     Type
@@ -1084,18 +1084,18 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1060   002420                     _main:
   1061                           	callstack 28
   1062   002420                     
-  1063                           ;main.c: 187:     setup();
+  1063                           ;main.c: 213:     setup();
   1064   002420  EC7C  F012         	call	_setup	;wreg free
   1065                           
-  1066                           ;main.c: 188:     resetAll();
+  1066                           ;main.c: 214:     resetAll();
   1067   002424  EC56  F012         	call	_resetAll	;wreg free
   1068   002428                     l1075:
   1069                           
-  1070                           ;main.c: 191:         char key = getKeyPressed();
+  1070                           ;main.c: 217:         char key = getKeyPressed();
   1071   002428  ECB3  F010         	call	_getKeyPressed	;wreg free
   1072   00242C  6E1A               	movwf	main@key^0,c
   1073   00242E                     
-  1074                           ;main.c: 192:         if (key != 0) {
+  1074                           ;main.c: 218:         if (key != 0) {
   1075   00242E  501A               	movf	main@key^0,w,c
   1076   002430  B4D8               	btfsc	status,2,c
   1077   002432  EF1D  F012         	goto	u551
@@ -1104,11 +1104,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1080   00243A  EF14  F012         	goto	l1075
   1081   00243E                     u550:
   1082   00243E                     
-  1083                           ;main.c: 193:             handleInput(key);
+  1083                           ;main.c: 219:             handleInput(key);
   1084   00243E  501A               	movf	main@key^0,w,c
   1085   002440  EC01  F010         	call	_handleInput
   1086   002444                     
-  1087                           ;main.c: 194:             _delay((unsigned long)((300)*(4000000/4000.0)));
+  1087                           ;main.c: 220:             _delay((unsigned long)((300)*(4000000/4000.0)));
   1088   002444  0E02               	movlw	2
   1089   002446  6E19               	movwf	(??_main+1)^0,c
   1090   002448  0E86               	movlw	134
@@ -1138,7 +1138,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1114                           
   1115 ;; *************** function _setup *****************
   1116 ;; Defined at:
-  1117 ;;		line 63 in file "main.c"
+  1117 ;;		line 60 in file "main.c"
   1118 ;; Parameters:    Size  Location     Type
   1119 ;;		None
   1120 ;; Auto vars:     Size  Location     Type
@@ -1181,36 +1181,36 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1147   0024F8                     _setup:
   1148                           	callstack 30
   1149   0024F8                     
-  1150                           ;main.c: 65:     LATB = 0x0F;
+  1150                           ;main.c: 62:     LATB = 0x0F;
   1151   0024F8  0E0F               	movlw	15
   1152   0024FA  6EBB               	movwf	187,c	;volatile
   1153   0024FC                     
-  1154                           ;main.c: 66:     ANSELB = 0x00;
+  1154                           ;main.c: 63:     ANSELB = 0x00;
   1155   0024FC  013A               	movlb	58	; () banked
   1156   0024FE  6B50               	clrf	80,b	;volatile
   1157                           
-  1158                           ;main.c: 67:     TRISB = 0b11110000;
+  1158                           ;main.c: 64:     TRISB = 0b11110000;
   1159   002500  0EF0               	movlw	240
   1160   002502  6EC3               	movwf	195,c	;volatile
   1161   002504                     
   1162                           ; BSR set to: 58
-  1163                           ;main.c: 68:     PORTB = 0xFF;
+  1163                           ;main.c: 65:     PORTB = 0xFF;
   1164   002504  68CB               	setf	203,c	;volatile
   1165   002506                     
   1166                           ; BSR set to: 58
-  1167                           ;main.c: 71:     ANSELD = 0x00;
+  1167                           ;main.c: 68:     ANSELD = 0x00;
   1168   002506  6B70               	clrf	112,b	;volatile
   1169   002508                     
   1170                           ; BSR set to: 58
-  1171                           ;main.c: 72:     TRISD = 0x00;
+  1171                           ;main.c: 69:     TRISD = 0x00;
   1172   002508  6AC5               	clrf	197,c	;volatile
   1173   00250A                     
   1174                           ; BSR set to: 58
-  1175                           ;main.c: 73:     LATD = 0x00;
+  1175                           ;main.c: 70:     LATD = 0x00;
   1176   00250A  6ABD               	clrf	189,c	;volatile
   1177   00250C                     
   1178                           ; BSR set to: 58
-  1179                           ;main.c: 74:     PORTD = 0x00;
+  1179                           ;main.c: 71:     PORTD = 0x00;
   1180   00250C  6ACD               	clrf	205,c	;volatile
   1181   00250E                     
   1182                           ; BSR set to: 58
@@ -1220,7 +1220,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1186                           
   1187 ;; *************** function _handleInput *****************
   1188 ;; Defined at:
-  1189 ;;		line 148 in file "main.c"
+  1189 ;;		line 167 in file "main.c"
   1190 ;; Parameters:    Size  Location     Type
   1191 ;;  key             1    wreg     unsigned char 
   1192 ;; Auto vars:     Size  Location     Type
@@ -1270,7 +1270,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1226                           ;handleInput@key stored from wreg
   1227   002002  6E0D               	movwf	handleInput@key^0,c
   1228   002004                     
-  1229                           ;main.c: 150:     if (key >= '0' && key <= '9') {
+  1229                           ;main.c: 169:     if (key >= '0' && key <= '9') {
   1230   002004  0E2F               	movlw	47
   1231   002006  640D               	cpfsgt	handleInput@key^0,c
   1232   002008  EF08  F010         	goto	u441
@@ -1286,7 +1286,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1242   002020  EF71  F010         	goto	l1055
   1243   002024                     u450:
   1244   002024                     
-  1245                           ;main.c: 151:         if (isSecond == 0) {
+  1245                           ;main.c: 170:         if (isSecond == 0) {
   1246   002024  502F               	movf	_isSecond^0,w,c
   1247   002026  1030               	iorwf	(_isSecond+1)^0,w,c
   1248   002028  A4D8               	btfss	status,2,c
@@ -1296,7 +1296,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1252   002032  EF48  F010         	goto	l1047
   1253   002036                     u460:
   1254   002036                     
-  1255                           ;main.c: 152:             X_Input_REG = (X_Input_REG * 10) + (key - '0');
+  1255                           ;main.c: 171:             X_Input_REG = (X_Input_REG * 10) + (key - '0');
   1256   002036  0E0A               	movlw	10
   1257   002038  0237               	mulwf	_X_Input_REG^0,c
   1258   00203A  006F FFCC  F00B    	movff	prodl,??_handleInput
@@ -1315,11 +1315,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1271   00205C  200C               	addwfc	(??_handleInput+1)^0,w,c
   1272   00205E  6E38               	movwf	(_X_Input_REG+1)^0,c
   1273   002060                     
-  1274                           ;main.c: 153:             digitCount++;
+  1274                           ;main.c: 172:             digitCount++;
   1275   002060  4A31               	infsnz	_digitCount^0,f,c
   1276   002062  2A32               	incf	(_digitCount+1)^0,f,c
   1277   002064                     
-  1278                           ;main.c: 154:             if (digitCount == 2) {
+  1278                           ;main.c: 173:             if (digitCount == 2) {
   1279   002064  0E02               	movlw	2
   1280   002066  1831               	xorwf	_digitCount^0,w,c
   1281   002068  1032               	iorwf	(_digitCount+1)^0,w,c
@@ -1330,25 +1330,25 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1286   002074  EFB2  F010         	goto	l81
   1287   002078                     u470:
   1288   002078                     
-  1289                           ;main.c: 155:                 isSecond = 1;
+  1289                           ;main.c: 174:                 isSecond = 1;
   1290   002078  0E00               	movlw	0
   1291   00207A  6E30               	movwf	(_isSecond+1)^0,c
   1292   00207C  0E01               	movlw	1
   1293   00207E  6E2F               	movwf	_isSecond^0,c
   1294                           
-  1295                           ;main.c: 156:                 digitCount = 0;
+  1295                           ;main.c: 175:                 digitCount = 0;
   1296   002080  0E00               	movlw	0
   1297   002082  6E32               	movwf	(_digitCount+1)^0,c
   1298   002084  0E00               	movlw	0
   1299   002086  6E31               	movwf	_digitCount^0,c
   1300                           
-  1301                           ;main.c: 157:                 PORTD = 0x01;
+  1301                           ;main.c: 176:                 PORTD = 0x01;
   1302   002088  0E01               	movlw	1
   1303   00208A  6ECD               	movwf	205,c	;volatile
   1304   00208C  EFB2  F010         	goto	l81
   1305   002090                     l1047:
   1306                           
-  1307                           ;main.c: 160:             Y_Input_REG = (Y_Input_REG * 10) + (key - '0');
+  1307                           ;main.c: 179:             Y_Input_REG = (Y_Input_REG * 10) + (key - '0');
   1308   002090  0E0A               	movlw	10
   1309   002092  0235               	mulwf	_Y_Input_REG^0,c
   1310   002094  006F FFCC  F00B    	movff	prodl,??_handleInput
@@ -1367,11 +1367,11 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1323   0020B6  200C               	addwfc	(??_handleInput+1)^0,w,c
   1324   0020B8  6E36               	movwf	(_Y_Input_REG+1)^0,c
   1325   0020BA                     
-  1326                           ;main.c: 161:             digitCount++;
+  1326                           ;main.c: 180:             digitCount++;
   1327   0020BA  4A31               	infsnz	_digitCount^0,f,c
   1328   0020BC  2A32               	incf	(_digitCount+1)^0,f,c
   1329   0020BE                     
-  1330                           ;main.c: 162:             if (digitCount == 2) {
+  1330                           ;main.c: 181:             if (digitCount == 2) {
   1331   0020BE  0E02               	movlw	2
   1332   0020C0  1831               	xorwf	_digitCount^0,w,c
   1333   0020C2  1032               	iorwf	(_digitCount+1)^0,w,c
@@ -1382,13 +1382,13 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1338   0020CE  EFB2  F010         	goto	l81
   1339   0020D2                     u480:
   1340   0020D2                     
-  1341                           ;main.c: 163:                 digitCount = 0;
+  1341                           ;main.c: 182:                 digitCount = 0;
   1342   0020D2  0E00               	movlw	0
   1343   0020D4  6E32               	movwf	(_digitCount+1)^0,c
   1344   0020D6  0E00               	movlw	0
   1345   0020D8  6E31               	movwf	_digitCount^0,c
   1346                           
-  1347                           ;main.c: 164:                 PORTD = 0x02;
+  1347                           ;main.c: 183:                 PORTD = 0x02;
   1348   0020DA  0E02               	movlw	2
   1349   0020DC  6ECD               	movwf	205,c	;volatile
   1350   0020DE  EFB2  F010         	goto	l81
@@ -1427,10 +1427,10 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1383   00212A                     u520:
   1384   00212A                     l76:
   1385                           
-  1386                           ;main.c: 171:         Operation_REG = key;
+  1386                           ;main.c: 190:         Operation_REG = key;
   1387   00212A  C00D  F039         	movff	handleInput@key,_Operation_REG
   1388                           
-  1389                           ;main.c: 172:     }
+  1389                           ;main.c: 191:     }
   1390   00212E  EFB2  F010         	goto	l81
   1391   002132                     l1063:
   1392   002132  0E23               	movlw	35
@@ -1442,13 +1442,13 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1398   002140  EFA7  F010         	goto	l1069
   1399   002144                     u530:
   1400   002144                     
-  1401                           ;main.c: 176:         PORTD = 0x00;
+  1401                           ;main.c: 195:         PORTD = 0x00;
   1402   002144  6ACD               	clrf	205,c	;volatile
   1403   002146                     
-  1404                           ;main.c: 177:         calculate();
+  1404                           ;main.c: 196:         calculate();
   1405   002146  EC38  F011         	call	_calculate	;wreg free
   1406                           
-  1407                           ;main.c: 178:     }
+  1407                           ;main.c: 197:     }
   1408   00214A  EFB2  F010         	goto	l81
   1409   00214E                     l1069:
   1410   00214E  0E2A               	movlw	42
@@ -1460,7 +1460,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1416   00215C  EFB2  F010         	goto	l81
   1417   002160                     u540:
   1418   002160                     
-  1419                           ;main.c: 182:         resetAll();
+  1419                           ;main.c: 201:         resetAll();
   1420   002160  EC56  F012         	call	_resetAll	;wreg free
   1421   002164                     l81:
   1422   002164  0012               	return		;funcret
@@ -1469,7 +1469,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1425                           
   1426 ;; *************** function _resetAll *****************
   1427 ;; Defined at:
-  1428 ;;		line 117 in file "main.c"
+  1428 ;;		line 119 in file "main.c"
   1429 ;; Parameters:    Size  Location     Type
   1430 ;;		None
   1431 ;; Auto vars:     Size  Location     Type
@@ -1513,40 +1513,40 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1459   0024AC                     _resetAll:
   1460                           	callstack 30
   1461   0024AC                     
-  1462                           ;main.c: 118:     X_Input_REG = 0;
+  1462                           ;main.c: 120:     X_Input_REG = 0;
   1463   0024AC  0E00               	movlw	0
   1464   0024AE  6E38               	movwf	(_X_Input_REG+1)^0,c
   1465   0024B0  0E00               	movlw	0
   1466   0024B2  6E37               	movwf	_X_Input_REG^0,c
   1467                           
-  1468                           ;main.c: 119:     Y_Input_REG = 0;
+  1468                           ;main.c: 121:     Y_Input_REG = 0;
   1469   0024B4  0E00               	movlw	0
   1470   0024B6  6E36               	movwf	(_Y_Input_REG+1)^0,c
   1471   0024B8  0E00               	movlw	0
   1472   0024BA  6E35               	movwf	_Y_Input_REG^0,c
   1473                           
-  1474                           ;main.c: 120:     Display_Result_REG = 0;
+  1474                           ;main.c: 122:     Display_Result_REG = 0;
   1475   0024BC  0E00               	movlw	0
   1476   0024BE  6E34               	movwf	(_Display_Result_REG+1)^0,c
   1477   0024C0  0E00               	movlw	0
   1478   0024C2  6E33               	movwf	_Display_Result_REG^0,c
   1479   0024C4                     
-  1480                           ;main.c: 121:     Operation_REG = 0;
+  1480                           ;main.c: 123:     Operation_REG = 0;
   1481   0024C4  6A39               	clrf	_Operation_REG^0,c
   1482                           
-  1483                           ;main.c: 122:     digitCount = 0;
+  1483                           ;main.c: 124:     digitCount = 0;
   1484   0024C6  0E00               	movlw	0
   1485   0024C8  6E32               	movwf	(_digitCount+1)^0,c
   1486   0024CA  0E00               	movlw	0
   1487   0024CC  6E31               	movwf	_digitCount^0,c
   1488                           
-  1489                           ;main.c: 123:     isSecond = 0;
+  1489                           ;main.c: 125:     isSecond = 0;
   1490   0024CE  0E00               	movlw	0
   1491   0024D0  6E30               	movwf	(_isSecond+1)^0,c
   1492   0024D2  0E00               	movlw	0
   1493   0024D4  6E2F               	movwf	_isSecond^0,c
   1494   0024D6                     
-  1495                           ;main.c: 124:     PORTD = 0x00;
+  1495                           ;main.c: 126:     PORTD = 0x00;
   1496   0024D6  6ACD               	clrf	205,c	;volatile
   1497   0024D8  0012               	return		;funcret
   1498   0024DA                     __end_of_resetAll:
@@ -1554,7 +1554,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1500                           
   1501 ;; *************** function _calculate *****************
   1502 ;; Defined at:
-  1503 ;;		line 135 in file "main.c"
+  1503 ;;		line 143 in file "main.c"
   1504 ;; Parameters:    Size  Location     Type
   1505 ;;		None
   1506 ;; Auto vars:     Size  Location     Type
@@ -1599,7 +1599,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1535   002270                     _calculate:
   1536                           	callstack 28
   1537   002270                     
-  1538                           ;main.c: 136:     if (Operation_REG == 'A') Display_Result_REG = X_Input_REG + Y_Input_R
+  1538                           ;main.c: 144:     if (Operation_REG == 'A') Display_Result_REG = X_Input_REG + Y_Input_R
       +                          EG;
   1539   002270  0E41               	movlw	65
   1540   002272  1839               	xorwf	_Operation_REG^0,w,c
@@ -1681,30 +1681,30 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1616   00232C  C002  F034         	movff	?___awdiv+1,_Display_Result_REG+1
   1617   002330                     l59:
   1618                           
-  1619                           ;main.c: 141:     displayOnLEDs(Display_Result_REG);
+  1619                           ;main.c: 149:     displayOnLEDs(Display_Result_REG);
   1620   002330  C033  F001         	movff	_Display_Result_REG,displayOnLEDs@value
   1621   002334  C034  F002         	movff	_Display_Result_REG+1,displayOnLEDs@value+1
   1622   002338  EC6D  F012         	call	_displayOnLEDs	;wreg free
   1623   00233C                     
-  1624                           ;main.c: 142:     X_Input_REG = 0;
+  1624                           ;main.c: 153:     X_Input_REG = 0;
   1625   00233C  0E00               	movlw	0
   1626   00233E  6E38               	movwf	(_X_Input_REG+1)^0,c
   1627   002340  0E00               	movlw	0
   1628   002342  6E37               	movwf	_X_Input_REG^0,c
   1629   002344                     
-  1630                           ;main.c: 143:     Y_Input_REG = 0;
+  1630                           ;main.c: 154:     Y_Input_REG = 0;
   1631   002344  0E00               	movlw	0
   1632   002346  6E36               	movwf	(_Y_Input_REG+1)^0,c
   1633   002348  0E00               	movlw	0
   1634   00234A  6E35               	movwf	_Y_Input_REG^0,c
   1635   00234C                     
-  1636                           ;main.c: 144:     digitCount = 0;
+  1636                           ;main.c: 155:     digitCount = 0;
   1637   00234C  0E00               	movlw	0
   1638   00234E  6E32               	movwf	(_digitCount+1)^0,c
   1639   002350  0E00               	movlw	0
   1640   002352  6E31               	movwf	_digitCount^0,c
   1641   002354                     
-  1642                           ;main.c: 145:     isSecond = 0;
+  1642                           ;main.c: 156:     isSecond = 0;
   1643   002354  0E00               	movlw	0
   1644   002356  6E30               	movwf	(_isSecond+1)^0,c
   1645   002358  0E00               	movlw	0
@@ -1715,7 +1715,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1650                           
   1651 ;; *************** function _displayOnLEDs *****************
   1652 ;; Defined at:
-  1653 ;;		line 128 in file "main.c"
+  1653 ;;		line 133 in file "main.c"
   1654 ;; Parameters:    Size  Location     Type
   1655 ;;  value           2    0[COMRAM] int 
   1656 ;; Auto vars:     Size  Location     Type
@@ -1758,7 +1758,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1683   0024DA                     _displayOnLEDs:
   1684                           	callstack 28
   1685   0024DA                     
-  1686                           ;main.c: 129:     if (value < 0)
+  1686                           ;main.c: 134:     if (value < 0)
   1687   0024DA  BE02               	btfsc	(displayOnLEDs@value+1)^0,7,c
   1688   0024DC  EF74  F012         	goto	u320
   1689   0024E0  EF72  F012         	goto	u321
@@ -1766,14 +1766,14 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1691   0024E4  EF78  F012         	goto	l961
   1692   0024E8                     u320:
   1693   0024E8                     
-  1694                           ;main.c: 130:         value = ~value + 1;
+  1694                           ;main.c: 135:         value = ~value + 1;
   1695   0024E8  6C01               	negf	displayOnLEDs@value^0,c
   1696   0024EA  1E02               	comf	(displayOnLEDs@value+1)^0,f,c
   1697   0024EC  B0D8               	btfsc	status,0,c
   1698   0024EE  2A02               	incf	(displayOnLEDs@value+1)^0,f,c
   1699   0024F0                     l961:
   1700                           
-  1701                           ;main.c: 131:     PORTD = (char)value;
+  1701                           ;main.c: 136:     PORTD = (char)value;
   1702   0024F0  0060  F007  FFCD   	movff	displayOnLEDs@value,16333	;volatile
   1703   0024F6  0012               	return		;funcret
   1704   0024F8                     __end_of_displayOnLEDs:
@@ -1926,7 +1926,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1841                           
   1842 ;; *************** function _getKeyPressed *****************
   1843 ;; Defined at:
-  1844 ;;		line 83 in file "main.c"
+  1844 ;;		line 80 in file "main.c"
   1845 ;; Parameters:    Size  Location     Type
   1846 ;;		None
   1847 ;; Auto vars:     Size  Location     Type
@@ -1971,8 +1971,8 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1876   002166                     _getKeyPressed:
   1877                           	callstack 30
   1878   002166                     
-  1879                           ;main.c: 84:     char keys[4][4] = {
-  1880   002166  EE20  F01B         	lfsr	2,getKeyPressed@F16767
+  1879                           ;main.c: 81:     char keys[4][4] = {
+  1880   002166  EE20  F01B         	lfsr	2,getKeyPressed@F16022
   1881   00216A  EE10  F002         	lfsr	1,getKeyPressed@keys
   1882   00216E  0E0F               	movlw	15
   1883   002170                     u131:
@@ -1980,21 +1980,21 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1885   002176  06E8               	decf	wreg,f,c
   1886   002178  E2FB               	bc	u131
   1887   00217A                     
-  1888                           ;main.c: 92:     unsigned char row_values[4] = {0b11111110, 0b11111101, 0b11111011, 0b11
+  1888                           ;main.c: 89:     unsigned char row_values[4] = {0b11111110, 0b11111101, 0b11111011, 0b11
       +                          110111};
-  1889   00217A  C02B  F012         	movff	getKeyPressed@F16771,getKeyPressed@row_values
-  1890   00217E  C02C  F013         	movff	getKeyPressed@F16771+1,getKeyPressed@row_values+1
-  1891   002182  C02D  F014         	movff	getKeyPressed@F16771+2,getKeyPressed@row_values+2
-  1892   002186  C02E  F015         	movff	getKeyPressed@F16771+3,getKeyPressed@row_values+3
+  1889   00217A  C02B  F012         	movff	getKeyPressed@F16026,getKeyPressed@row_values
+  1890   00217E  C02C  F013         	movff	getKeyPressed@F16026+1,getKeyPressed@row_values+1
+  1891   002182  C02D  F014         	movff	getKeyPressed@F16026+2,getKeyPressed@row_values+2
+  1892   002186  C02E  F015         	movff	getKeyPressed@F16026+3,getKeyPressed@row_values+3
   1893   00218A                     
-  1894                           ;main.c: 94:     for (int row = 0; row < 4; row++) {
+  1894                           ;main.c: 91:     for (int row = 0; row < 4; row++) {
   1895   00218A  0E00               	movlw	0
   1896   00218C  6E17               	movwf	(getKeyPressed@row+1)^0,c
   1897   00218E  0E00               	movlw	0
   1898   002190  6E16               	movwf	getKeyPressed@row^0,c
   1899   002192                     l875:
   1900                           
-  1901                           ;main.c: 95:         LATB = row_values[row];
+  1901                           ;main.c: 92:         LATB = row_values[row];
   1902   002192  5016               	movf	getKeyPressed@row^0,w,c
   1903   002194  0F12               	addlw	low getKeyPressed@row_values
   1904   002196  6ED9               	movwf	fsr2l,c
@@ -2002,7 +2002,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1906   00219A  50DF               	movf	indf2,w,c
   1907   00219C  6EBB               	movwf	187,c	;volatile
   1908   00219E                     
-  1909                           ;main.c: 96:         _delay((unsigned long)((5)*(4000000/4000.0)));
+  1909                           ;main.c: 93:         _delay((unsigned long)((5)*(4000000/4000.0)));
   1910   00219E  0E07               	movlw	7
   1911   0021A0  6E01               	movwf	??_getKeyPressed^0,c
   1912   0021A2  0E7D               	movlw	125
@@ -2013,7 +2013,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1917   0021AA  D7FC               	bra	u587
   1918   0021AC  0000               	nop	
   1919   0021AE                     
-  1920                           ;main.c: 100:         if (!PORTBbits.RB4) return keys[row][0];
+  1920                           ;main.c: 97:         if (!PORTBbits.RB4) return keys[row][0];
   1921   0021AE  B8CB               	btfsc	203,4,c	;volatile
   1922   0021B0  EFDC  F010         	goto	u141
   1923   0021B4  EFDE  F010         	goto	u140
@@ -2030,7 +2030,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1934   0021CA  EF37  F011         	goto	l33
   1935   0021CE                     l32:
   1936                           
-  1937                           ;main.c: 101:         if (!PORTBbits.RB5) return keys[row][1];
+  1937                           ;main.c: 98:         if (!PORTBbits.RB5) return keys[row][1];
   1938   0021CE  BACB               	btfsc	203,5,c	;volatile
   1939   0021D0  EFEC  F010         	goto	u151
   1940   0021D4  EFEE  F010         	goto	u150
@@ -2050,7 +2050,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1954   0021F4  EF37  F011         	goto	l33
   1955   0021F8                     l34:
   1956                           
-  1957                           ;main.c: 102:         if (!PORTBbits.RB6) return keys[row][2];
+  1957                           ;main.c: 99:         if (!PORTBbits.RB6) return keys[row][2];
   1958   0021F8  BCCB               	btfsc	203,6,c	;volatile
   1959   0021FA  EF01  F011         	goto	u161
   1960   0021FE  EF03  F011         	goto	u160
@@ -2070,7 +2070,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1974   00221E  EF37  F011         	goto	l33
   1975   002222                     l35:
   1976                           
-  1977                           ;main.c: 103:         if (!PORTBbits.RB7) return keys[row][3];
+  1977                           ;main.c: 100:         if (!PORTBbits.RB7) return keys[row][3];
   1978   002222  BECB               	btfsc	203,7,c	;volatile
   1979   002224  EF16  F011         	goto	u171
   1980   002228  EF18  F011         	goto	u170
@@ -2090,7 +2090,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   1994   002248  EF37  F011         	goto	l33
   1995   00224C                     l897:
   1996                           
-  1997                           ;main.c: 104:     }
+  1997                           ;main.c: 101:     }
   1998   00224C  4A16               	infsnz	getKeyPressed@row^0,f,c
   1999   00224E  2A17               	incf	(getKeyPressed@row+1)^0,f,c
   2000   002250  BE17               	btfsc	(getKeyPressed@row+1)^0,7,c
@@ -2106,7 +2106,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   2010   002268  EFC9  F010         	goto	l875
   2011   00226C                     u180:
   2012   00226C                     
-  2013                           ;main.c: 106:     return 0;
+  2013                           ;main.c: 103:     return 0;
   2014   00226C  0E00               	movlw	0
   2015   00226E                     l33:
   2016   00226E  0012               	return		;funcret
@@ -2585,7 +2585,7 @@ DATA                 0      0      57      0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Tue Apr 08 11:16:33 2025
+Symbol Table                                                                                   Tue Apr 08 11:40:29 2025
 
                      l23 250E                       l32 21CE                       l33 226E  
                      l34 21F8                       l35 2222                       l51 24D8  
@@ -2649,7 +2649,7 @@ Symbol Table                                                                    
                   ?_main 0001          __end_of___awdiv 2420          ___awdiv@divisor 0003  
         ___awdiv@counter 0005                    _PORTB 3FCB                    _PORTD 3FCD  
                   _TRISB 3FC3                    _TRISD 3FC5                    _setup 24F8  
-    getKeyPressed@F16771 002B      getKeyPressed@F16767 001B                    tablat 3FF5  
+    getKeyPressed@F16022 001B      getKeyPressed@F16026 002B                    tablat 3FF5  
                   plusw1 3FE3                    plusw2 3FDB                    status 3FD8  
         __initialization 2478             __end_of_main 2478                   ??_main 0018  
         ??_displayOnLEDs 0003            __activetblptr 0000         ___awdiv@dividend 0001  

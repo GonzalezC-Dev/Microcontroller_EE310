@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v3.00\pic\dat\20241204225717_en.msgs \
   -cn -h+dist/default/debug\Calculator.X.debug.sym \
   --cmf=dist/default/debug\Calculator.X.debug.cmf -z -Q18F47K42 \
-  -oC:\Users\chris\AppData\Local\Temp\xcAs104c.\driver_tmp_3.o \
+  -oC:\Users\chris\AppData\Local\Temp\xcAsat4.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/debug/Calculator.X.debug.map \
-  --md=C:\Users\chris\AppData\Local\Temp\xcAs104c.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\chris\AppData\Local\Temp\xcAsat4.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=02000h-020FFhx224,012000h-0120FFhx224 \
   -AMEDIUMCONST=02000h-0FFFFh,012000h-01FFFFh -ACOMRAM=01h-05Fh \
@@ -34,7 +34,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\chris\AppData\Local\Temp\xcAs104c.\driver_tmp_9.o \
+  C:\Users\chris\AppData\Local\Temp\xcAsat4.\driver_tmp_9.o \
   dist/default/debug\Calculator.X.debug.o 
 
 Object code version is 3.11
@@ -44,7 +44,7 @@ Machine type is 18F47K42
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\chris\AppData\Local\Temp\xcAs104c.\driver_tmp_9.o
+C:\Users\chris\AppData\Local\Temp\xcAsat4.\driver_tmp_9.o
                 config                           300000   300000        A        0       4
                 init                              1FFFC    1FFFC        4     FFFE       0
                 reset_vec                             0        0        4        0       0
@@ -504,8 +504,8 @@ _resetAll                text3        0024AC
 _setup                   text1        0024F8
 displayOnLEDs@value      cstackCOMRAM 000001
 end_of_initialization    cinit        0024A6
-getKeyPressed@F16767     dataCOMRAM   00001B
-getKeyPressed@F16771     dataCOMRAM   00002B
+getKeyPressed@F16022     dataCOMRAM   00001B
+getKeyPressed@F16026     dataCOMRAM   00002B
 getKeyPressed@keys       cstackCOMRAM 000002
 getKeyPressed@row        cstackCOMRAM 000016
 getKeyPressed@row_values cstackCOMRAM 000012

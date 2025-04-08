@@ -44,9 +44,6 @@
 #include <xc.h> // must have this
 #include "C:/Program Files/Microchip/xc8/v3.00/pic/include/proc/pic18f47k42.h"
 #include "header.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 
 #define _XTAL_FREQ 4000000                 // Fosc  frequency for _delay()  library
 #define FCY    _XTAL_FREQ/4
@@ -111,9 +108,14 @@ int X_Input_REG = 0;        // First input
 int Y_Input_REG = 0;        // Second input
 int Display_Result_REG = 0; // Result
 char Operation_REG = 0;     // Type of operation (Holds A-D)
-int digitCount = 0;
-int isSecond = 0;
+int digitCount = 0;         // Keeps track of how many digits have been input for each operand
+int isSecond = 0;           // Keeps track of whether we are on the second operand
 
+/*
+ * This function is used to reset all variables and LEDs
+ * params: none
+ * return: none
+ */
 void resetAll() {
     X_Input_REG = 0;
     Y_Input_REG = 0;
@@ -124,27 +126,44 @@ void resetAll() {
     PORTD = 0x00; // Turn off LEDs
 }
 
-// Show result on 8 LEDs
-void displayOnLEDs(int value) {
-    if (value < 0)
-        value = ~value + 1;
-    PORTD = (char)value;
+/*
+ * This function is used to show the result in binary on the 8 LEDs
+ * params: value: the result in hex
+ * return: none
+ */void displayOnLEDs(int value) {
+    if (value < 0)          // If the result is negative we negate the result and add 1
+        value = ~value + 1; // This is the same as 2s complement
+    PORTD = (char)value;    // Output the result to the LEDs, char because only need 8 bits
 }
 
-// Perform calculation
-void calculate() {
-    if (Operation_REG == 'A') Display_Result_REG = X_Input_REG + Y_Input_REG;
-    else if (Operation_REG == 'B') Display_Result_REG = X_Input_REG - Y_Input_REG;
+/*
+ * This function is used to do the calculation needed based on the inputs
+ * params: none
+ * return: none
+ */void calculate() {
+    if (Operation_REG == 'A') Display_Result_REG = X_Input_REG + Y_Input_REG;      
+    else if (Operation_REG == 'B') Display_Result_REG = X_Input_REG - Y_Input_REG;  
     else if (Operation_REG == 'C') Display_Result_REG = X_Input_REG * Y_Input_REG;
     else if (Operation_REG == 'D' && Y_Input_REG != 0) Display_Result_REG = X_Input_REG / Y_Input_REG;
 
-    displayOnLEDs(Display_Result_REG);
+    displayOnLEDs(Display_Result_REG);  
+    
+    // Reset variables to 0. Similar to resetAll but resetAll turns LEDs off too
+    // Not necessarily needed as reset when * is pressed, just precaution
     X_Input_REG = 0;
     Y_Input_REG = 0;
     digitCount = 0;
     isSecond = 0;
 }
 
+ /*
+  * This function is used to handle the input from the keypad. If it is a digit
+  * it places it it in its corresponding operand variable. If it is a letter, it 
+  * places it in the operation variable. If it is # it calculates. And if it is 
+  * *, then it resets everything.
+  * params: key: the input from the keyboard
+  * return: none
+  */
 void handleInput(char key) {
     // If digit
     if (key >= '0' && key <= '9') {
@@ -183,16 +202,23 @@ void handleInput(char key) {
     }
 }
 
+/*
+ * This function is the main function. It does initialization/configuration
+ * and then infinitely loops through checking the keypad for inputs and does
+ * operations as needed.
+ * params: none
+ * return: knone
+ */
 void main(void) {
     setup();
     resetAll();
 
     while (1) {
-        char key = getKeyPressed();
-        if (key != 0) {
+        char key = getKeyPressed();     // Variable for key pressed
+        if (key != 0) {             
             handleInput(key);
-            __delay_ms(300);
-            while (getKeyPressed());    // Wait until key released
+            __delay_ms(300);            // Not really needed as we have the next line (precaution))
+            while (getKeyPressed());    // Wait until key released for no issues
         }
     }
 }
