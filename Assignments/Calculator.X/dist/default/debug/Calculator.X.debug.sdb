@@ -29,19 +29,19 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"60 C:\Users\chris\Documents\GitHub\Microcontroller_EE310\Assignments\Calculator.X\main.c
+"59 C:\Users\chris\Documents\GitHub\Microcontroller_EE310\Assignments\Calculator.X\main.c
 [v _setup setup `(v  1 e 1 0 ]
-"80
+"79
 [v _getKeyPressed getKeyPressed `(uc  1 e 1 0 ]
-"119
+"118
 [v _resetAll resetAll `(v  1 e 1 0 ]
-"133
+"132
 [v _displayOnLEDs displayOnLEDs `(v  1 e 1 0 ]
-"143
+"142
 [v _calculate calculate `(v  1 e 1 0 ]
-"167
+"166
 [v _handleInput handleInput `(v  1 e 1 0 ]
-"212
+"211
 [v _main main `(v  1 e 1 0 ]
 "8513 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f47k42.h
 [v _ANSELB ANSELB `VEuc  1 e 1 @14928 ]
@@ -57,7 +57,7 @@
 [v _TRISD TRISD `VEuc  1 e 1 @16325 ]
 "46818
 [v _PORTB PORTB `VEuc  1 e 1 @16331 ]
-[s S38 . 1 `uc 1 RB0 1 0 :1:0 
+[s S32 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -67,60 +67,60 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "46835
-[u S47 . 1 `S38 1 . 1 0 ]
+[u S41 . 1 `S32 1 . 1 0 ]
 "46835
 "46835
-[v _PORTBbits PORTBbits `VES47  1 e 1 @16331 ]
+[v _PORTBbits PORTBbits `VES41  1 e 1 @16331 ]
 "46942
 [v _PORTD PORTD `VEuc  1 e 1 @16333 ]
-"107 C:\Users\chris\Documents\GitHub\Microcontroller_EE310\Assignments\Calculator.X\main.c
+"106 C:\Users\chris\Documents\GitHub\Microcontroller_EE310\Assignments\Calculator.X\main.c
 [v _X_Input_REG X_Input_REG `i  1 e 2 0 ]
-"108
+"107
 [v _Y_Input_REG Y_Input_REG `i  1 e 2 0 ]
-"109
+"108
 [v _Display_Result_REG Display_Result_REG `i  1 e 2 0 ]
-"110
+"109
 [v _Operation_REG Operation_REG `uc  1 e 1 0 ]
-"111
+"110
 [v _digitCount digitCount `i  1 e 2 0 ]
-"112
+"111
 [v _isSecond isSecond `i  1 e 2 0 ]
-"212
+"211
 [v _main main `(v  1 e 1 0 ]
 {
-"217
-[v main@key key `uc  1 a 1 25 ]
-"224
+"230
+[v main@key_93 key `uc  1 a 1 23 ]
+"237
 } 0
-"60
+"59
 [v _setup setup `(v  1 e 1 0 ]
 {
-"72
+"71
 } 0
-"167
+"166
 [v _handleInput handleInput `(v  1 e 1 0 ]
 {
 [v handleInput@key key `uc  1 p 1 wreg ]
 [v handleInput@key key `uc  1 p 1 wreg ]
-"169
+"168
 [v handleInput@key key `uc  1 p 1 12 ]
-"203
+"202
 } 0
-"119
+"118
 [v _resetAll resetAll `(v  1 e 1 0 ]
 {
-"127
+"126
 } 0
-"143
+"142
 [v _calculate calculate `(v  1 e 1 0 ]
 {
-"157
+"156
 } 0
-"133
+"132
 [v _displayOnLEDs displayOnLEDs `(v  1 e 1 0 ]
 {
 [v displayOnLEDs@value value `i  1 p 2 0 ]
-"137
+"136
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -135,18 +135,18 @@
 [v ___awdiv@divisor divisor `i  1 p 2 2 ]
 "41
 } 0
-"80 C:\Users\chris\Documents\GitHub\Microcontroller_EE310\Assignments\Calculator.X\main.c
+"79 C:\Users\chris\Documents\GitHub\Microcontroller_EE310\Assignments\Calculator.X\main.c
 [v _getKeyPressed getKeyPressed `(uc  1 e 1 0 ]
 {
-"91
+"90
 [v getKeyPressed@row row `i  1 a 2 21 ]
-"81
-[v getKeyPressed@keys keys `[4][4]uc  1 a 16 1 ]
-"89
-[v getKeyPressed@row_values row_values `[4]uc  1 a 4 17 ]
 "80
+[v getKeyPressed@keys keys `[4][4]uc  1 a 16 1 ]
+"88
+[v getKeyPressed@row_values row_values `[4]uc  1 a 4 17 ]
+"79
 [v getKeyPressed@F16022 F16022 `[4][4]uc  1 s 16 F16022 ]
-"81
+"80
 [v getKeyPressed@F16026 F16026 `[4]uc  1 s 4 F16026 ]
-"104
+"103
 } 0

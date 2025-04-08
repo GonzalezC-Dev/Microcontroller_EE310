@@ -13,7 +13,6 @@
  * Date: April 7, 2025
  * File Dependencies / Libraries: 
  *      - Header file "header.h" for microcontroller settings
- *      - Standard libraries for math and string operations
  * Compiler: xc8, 3.00
  * Author: Christian Gonzalez
  * Versions:
@@ -29,15 +28,15 @@
  *    current state.
  *  - Operation keys ('A' for addition, 'B' for subtraction, 'C' for multiplication, 'D' for division) 
  *    are stored in the `Operation_REG` variable.
- *  - Pressing the `#` key will trigger the calculation and display the result on the LEDs connected to PORTA.
+ *  - Pressing the `#` key will trigger the calculation and display the result on the LEDs connected to PORTD.
  *  - Pressing the `*` key resets the calculator to its initial state.
  *  
  *  Keypad functionality:
- *  - Rows (RB0?RB3) are used as output to activate one row at a time.
- *  - Columns (RB4?RB7) are inputs used to detect which key is pressed.
+ *  - Rows (RB0-RB3) are used as output to activate one row at a time.
+ *  - Columns (RB4-RB7) are inputs used to detect which key is pressed.
  *  - The program scans the keypad by setting one row to LOW and checking each column to detect which key is pressed.
  *  - If a key is pressed, it updates the corresponding operand or operator, or performs the calculation.
- *  - After the calculation, the result is displayed on the 8 LEDs connected to PORTA.
+ *  - After the calculation, the result is displayed on the 8 LEDs connected to PORTD.
  * 
  */
 
@@ -90,7 +89,7 @@ char getKeyPressed() {
 
     for (int row = 0; row < 4; row++) {
         LATB = row_values[row]; // Set one row LOW, others HIGH
-        __delay_ms(5);          // Make sure there's no misinterpretation
+        //__delay_ms(5);          // Make sure there's no misinterpretation
 
         // Depending on he key pressed, will return the corresponding char from the 
         // keys 2D array
@@ -213,11 +212,25 @@ void main(void) {
     setup();
     resetAll();
 
+    char key = '0';
+    handleInput(key);
+    key = '0';
+    handleInput(key);
+    key = 'B';
+    handleInput(key);
+    key = '0';
+    handleInput(key);
+    key = '0';
+    handleInput(key);
+    key = '#';
+    handleInput(key);
+    
+    
     while (1) {
         char key = getKeyPressed();     // Variable for key pressed
         if (key != 0) {             
             handleInput(key);
-            __delay_ms(300);            // Not really needed as we have the next line (precaution))
+            //__delay_ms(300);            // Not really needed as we have the next line (precaution))
             while (getKeyPressed());    // Wait until key released for no issues
         }
     }

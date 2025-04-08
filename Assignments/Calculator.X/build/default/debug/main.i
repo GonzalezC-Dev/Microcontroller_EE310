@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 44 "main.c"
+# 43 "main.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -26872,9 +26872,9 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 45 "main.c" 2
+# 44 "main.c" 2
 # 1 "C:/Program Files/Microchip/xc8/v3.00/pic/include/proc/pic18f47k42.h" 1
-# 46 "main.c" 2
+# 45 "main.c" 2
 # 1 "./header.h" 1
 # 29 "./header.h"
 #pragma config FEXTOSC = LP
@@ -26925,8 +26925,8 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config CP = OFF
-# 47 "main.c" 2
-# 60 "main.c"
+# 46 "main.c" 2
+# 59 "main.c"
 void setup() {
 
     LATB = 0x0F;
@@ -26960,7 +26960,7 @@ char getKeyPressed() {
 
     for (int row = 0; row < 4; row++) {
         LATB = row_values[row];
-        _delay((unsigned long)((5)*(4000000/4000.0)));
+
 
 
 
@@ -27025,7 +27025,7 @@ void resetAll() {
     digitCount = 0;
     isSecond = 0;
 }
-# 167 "main.c"
+# 166 "main.c"
 void handleInput(char key) {
 
     if (key >= '0' && key <= '9') {
@@ -27063,16 +27063,30 @@ void handleInput(char key) {
         resetAll();
     }
 }
-# 212 "main.c"
+# 211 "main.c"
 void main(void) {
     setup();
     resetAll();
+
+    char key = '0';
+    handleInput(key);
+    key = '0';
+    handleInput(key);
+    key = 'B';
+    handleInput(key);
+    key = '0';
+    handleInput(key);
+    key = '0';
+    handleInput(key);
+    key = '#';
+    handleInput(key);
+
 
     while (1) {
         char key = getKeyPressed();
         if (key != 0) {
             handleInput(key);
-            _delay((unsigned long)((300)*(4000000/4000.0)));
+
             while (getKeyPressed());
         }
     }

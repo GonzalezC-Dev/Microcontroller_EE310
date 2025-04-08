@@ -23,11 +23,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46942
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f47k42.h: 46942: extern volatile unsigned char PORTD __attribute__((address(0x3FCD)));
 [v _PORTD `Vuc ~T0 @X0 0 e@16333 ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
-"46824 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f47k42.h
+"46824
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f47k42.h: 46824:     struct {
 [s S2130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2130 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
@@ -2329,42 +2325,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x LVP  =  ON          ]
 "76
 [p x CP  =  OFF          ]
-"60 main.c
-[; ;main.c: 60: void setup() {
+"59 main.c
+[; ;main.c: 59: void setup() {
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"62
-[; ;main.c: 62:     LATB = 0x0F;
+"61
+[; ;main.c: 61:     LATB = 0x0F;
 [e = _LATB -> -> 15 `i `uc ]
-"63
-[; ;main.c: 63:     ANSELB = 0x00;
+"62
+[; ;main.c: 62:     ANSELB = 0x00;
 [e = _ANSELB -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:     TRISB = 0b11110000;
+"63
+[; ;main.c: 63:     TRISB = 0b11110000;
 [e = _TRISB -> -> 240 `i `uc ]
-"65
-[; ;main.c: 65:     PORTB = 0xFF;
+"64
+[; ;main.c: 64:     PORTB = 0xFF;
 [e = _PORTB -> -> 255 `i `uc ]
-"68
-[; ;main.c: 68:     ANSELD = 0x00;
+"67
+[; ;main.c: 67:     ANSELD = 0x00;
 [e = _ANSELD -> -> 0 `i `uc ]
-"69
-[; ;main.c: 69:     TRISD = 0x00;
+"68
+[; ;main.c: 68:     TRISD = 0x00;
 [e = _TRISD -> -> 0 `i `uc ]
-"70
-[; ;main.c: 70:     LATD = 0x00;
+"69
+[; ;main.c: 69:     LATD = 0x00;
 [e = _LATD -> -> 0 `i `uc ]
-"71
-[; ;main.c: 71:     PORTD = 0x00;
+"70
+[; ;main.c: 70:     PORTD = 0x00;
 [e = _PORTD -> -> 0 `i `uc ]
-"72
-[; ;main.c: 72: }
+"71
+[; ;main.c: 71: }
 [e :UE 2244 ]
 }
-"80
-[; ;main.c: 80: char getKeyPressed() {
+"79
+[; ;main.c: 79: char getKeyPressed() {
 [v _getKeyPressed `(uc ~T0 @X0 1 ef ]
 {
 [e :U _getKeyPressed ]
@@ -2374,8 +2370,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i F16022
 :U ..
 :U ..
-"81
-[; ;main.c: 81:     char keys[4][4] = {
+"80
+[; ;main.c: 80:     char keys[4][4] = {
 -> -> 49 `ui `uc
 -> -> 50 `ui `uc
 -> -> 51 `ui `uc
@@ -2407,8 +2403,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F16026 `uc ~T0 @X0 -> 4 `i s ]
 [i F16026
 :U ..
-"89
-[; ;main.c: 89:     unsigned char row_values[4] = {0b11111110, 0b11111101, 0b11111011, 0b11110111};
+"88
+[; ;main.c: 88:     unsigned char row_values[4] = {0b11111110, 0b11111101, 0b11111011, 0b11110111};
 -> -> 254 `i `uc
 -> -> 253 `i `uc
 -> -> 251 `i `uc
@@ -2417,8 +2413,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 [v _row_values `uc ~T0 @X0 -> 4 `i a ]
 [e = _row_values F16026 ]
-"91
-[; ;main.c: 91:     for (int row = 0; row < 4; row++) {
+"90
+[; ;main.c: 90:     for (int row = 0; row < 4; row++) {
 {
 [v _row `i ~T0 @X0 1 a ]
 [e = _row -> 0 `i ]
@@ -2426,164 +2422,161 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2247  ]
 [e :U 2246 ]
 {
-"92
-[; ;main.c: 92:         LATB = row_values[row];
+"91
+[; ;main.c: 91:         LATB = row_values[row];
 [e = _LATB *U + &U _row_values * -> -> _row `ui `ux -> -> # *U &U _row_values `ui `ux ]
-"93
-[; ;main.c: 93:         _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"97
-[; ;main.c: 97:         if (!PORTBbits.RB4) return keys[row][0];
+"96
+[; ;main.c: 96:         if (!PORTBbits.RB4) return keys[row][0];
 [e $ ! ! != -> . . _PORTBbits 0 4 `i -> 0 `i 2249  ]
 [e ) *U + &U *U + &U _keys * -> -> _row `ui `ux -> * -> # *U &U *U &U _keys `ui -> -> 4 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _keys * -> -> _row `ui `ux -> * -> # *U &U *U &U _keys `ui -> -> 4 `i `ui `ux `ui `ux ]
 [e $UE 2245  ]
 [e :U 2249 ]
-"98
-[; ;main.c: 98:         if (!PORTBbits.RB5) return keys[row][1];
+"97
+[; ;main.c: 97:         if (!PORTBbits.RB5) return keys[row][1];
 [e $ ! ! != -> . . _PORTBbits 0 5 `i -> 0 `i 2250  ]
 [e ) *U + &U *U + &U _keys * -> -> _row `ui `ux -> * -> # *U &U *U &U _keys `ui -> -> 4 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _keys * -> -> _row `ui `ux -> * -> # *U &U *U &U _keys `ui -> -> 4 `i `ui `ux `ui `ux ]
 [e $UE 2245  ]
 [e :U 2250 ]
-"99
-[; ;main.c: 99:         if (!PORTBbits.RB6) return keys[row][2];
+"98
+[; ;main.c: 98:         if (!PORTBbits.RB6) return keys[row][2];
 [e $ ! ! != -> . . _PORTBbits 0 6 `i -> 0 `i 2251  ]
 [e ) *U + &U *U + &U _keys * -> -> _row `ui `ux -> * -> # *U &U *U &U _keys `ui -> -> 4 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _keys * -> -> _row `ui `ux -> * -> # *U &U *U &U _keys `ui -> -> 4 `i `ui `ux `ui `ux ]
 [e $UE 2245  ]
 [e :U 2251 ]
-"100
-[; ;main.c: 100:         if (!PORTBbits.RB7) return keys[row][3];
+"99
+[; ;main.c: 99:         if (!PORTBbits.RB7) return keys[row][3];
 [e $ ! ! != -> . . _PORTBbits 0 7 `i -> 0 `i 2252  ]
 [e ) *U + &U *U + &U _keys * -> -> _row `ui `ux -> * -> # *U &U *U &U _keys `ui -> -> 4 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _keys * -> -> _row `ui `ux -> * -> # *U &U *U &U _keys `ui -> -> 4 `i `ui `ux `ui `ux ]
 [e $UE 2245  ]
 [e :U 2252 ]
-"101
-[; ;main.c: 101:     }
+"100
+[; ;main.c: 100:     }
 }
 [e ++ _row -> 1 `i ]
 [e $ < _row -> 4 `i 2246  ]
 [e :U 2247 ]
 }
-"103
-[; ;main.c: 103:     return 0;
+"102
+[; ;main.c: 102:     return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 2245  ]
-"104
-[; ;main.c: 104: }
+"103
+[; ;main.c: 103: }
 [e :UE 2245 ]
 }
-"107
-[; ;main.c: 107: int X_Input_REG = 0;
+"106
+[; ;main.c: 106: int X_Input_REG = 0;
 [v _X_Input_REG `i ~T0 @X0 1 e ]
 [i _X_Input_REG
 -> 0 `i
 ]
-"108
-[; ;main.c: 108: int Y_Input_REG = 0;
+"107
+[; ;main.c: 107: int Y_Input_REG = 0;
 [v _Y_Input_REG `i ~T0 @X0 1 e ]
 [i _Y_Input_REG
 -> 0 `i
 ]
-"109
-[; ;main.c: 109: int Display_Result_REG = 0;
+"108
+[; ;main.c: 108: int Display_Result_REG = 0;
 [v _Display_Result_REG `i ~T0 @X0 1 e ]
 [i _Display_Result_REG
 -> 0 `i
 ]
-"110
-[; ;main.c: 110: char Operation_REG = 0;
+"109
+[; ;main.c: 109: char Operation_REG = 0;
 [v _Operation_REG `uc ~T0 @X0 1 e ]
 [i _Operation_REG
 -> -> 0 `i `uc
 ]
-"111
-[; ;main.c: 111: int digitCount = 0;
+"110
+[; ;main.c: 110: int digitCount = 0;
 [v _digitCount `i ~T0 @X0 1 e ]
 [i _digitCount
 -> 0 `i
 ]
-"112
-[; ;main.c: 112: int isSecond = 0;
+"111
+[; ;main.c: 111: int isSecond = 0;
 [v _isSecond `i ~T0 @X0 1 e ]
 [i _isSecond
 -> 0 `i
 ]
-"119
-[; ;main.c: 119: void resetAll() {
+"118
+[; ;main.c: 118: void resetAll() {
 [v _resetAll `(v ~T0 @X0 1 ef ]
 {
 [e :U _resetAll ]
 [f ]
-"120
-[; ;main.c: 120:     X_Input_REG = 0;
+"119
+[; ;main.c: 119:     X_Input_REG = 0;
 [e = _X_Input_REG -> 0 `i ]
-"121
-[; ;main.c: 121:     Y_Input_REG = 0;
+"120
+[; ;main.c: 120:     Y_Input_REG = 0;
 [e = _Y_Input_REG -> 0 `i ]
-"122
-[; ;main.c: 122:     Display_Result_REG = 0;
+"121
+[; ;main.c: 121:     Display_Result_REG = 0;
 [e = _Display_Result_REG -> 0 `i ]
-"123
-[; ;main.c: 123:     Operation_REG = 0;
+"122
+[; ;main.c: 122:     Operation_REG = 0;
 [e = _Operation_REG -> -> 0 `i `uc ]
-"124
-[; ;main.c: 124:     digitCount = 0;
+"123
+[; ;main.c: 123:     digitCount = 0;
 [e = _digitCount -> 0 `i ]
-"125
-[; ;main.c: 125:     isSecond = 0;
+"124
+[; ;main.c: 124:     isSecond = 0;
 [e = _isSecond -> 0 `i ]
-"126
-[; ;main.c: 126:     PORTD = 0x00;
+"125
+[; ;main.c: 125:     PORTD = 0x00;
 [e = _PORTD -> -> 0 `i `uc ]
-"127
-[; ;main.c: 127: }
+"126
+[; ;main.c: 126: }
 [e :UE 2253 ]
 }
-"133
-[; ;main.c: 133:    void displayOnLEDs(int value) {
+"132
+[; ;main.c: 132:    void displayOnLEDs(int value) {
 [v _displayOnLEDs `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _displayOnLEDs ]
 [v _value `i ~T0 @X0 1 r1 ]
 [f ]
-"134
-[; ;main.c: 134:     if (value < 0)
+"133
+[; ;main.c: 133:     if (value < 0)
 [e $ ! < _value -> 0 `i 2255  ]
-"135
-[; ;main.c: 135:         value = ~value + 1;
+"134
+[; ;main.c: 134:         value = ~value + 1;
 [e = _value + ~ _value -> 1 `i ]
 [e :U 2255 ]
-"136
-[; ;main.c: 136:     PORTD = (char)value;
+"135
+[; ;main.c: 135:     PORTD = (char)value;
 [e = _PORTD -> -> _value `uc `uc ]
-"137
-[; ;main.c: 137: }
+"136
+[; ;main.c: 136: }
 [e :UE 2254 ]
 }
-"143
-[; ;main.c: 143:    void calculate() {
+"142
+[; ;main.c: 142:    void calculate() {
 [v _calculate `(v ~T0 @X0 1 ef ]
 {
 [e :U _calculate ]
 [f ]
-"144
-[; ;main.c: 144:     if (Operation_REG == 'A') Display_Result_REG = X_Input_REG + Y_Input_REG;
+"143
+[; ;main.c: 143:     if (Operation_REG == 'A') Display_Result_REG = X_Input_REG + Y_Input_REG;
 [e $ ! == -> _Operation_REG `ui -> 65 `ui 2257  ]
 [e = _Display_Result_REG + _X_Input_REG _Y_Input_REG ]
 [e $U 2258  ]
-"145
-[; ;main.c: 145:     else if (Operation_REG == 'B') Display_Result_REG = X_Input_REG - Y_Input_REG;
+"144
+[; ;main.c: 144:     else if (Operation_REG == 'B') Display_Result_REG = X_Input_REG - Y_Input_REG;
 [e :U 2257 ]
 [e $ ! == -> _Operation_REG `ui -> 66 `ui 2259  ]
 [e = _Display_Result_REG - _X_Input_REG _Y_Input_REG ]
 [e $U 2260  ]
-"146
-[; ;main.c: 146:     else if (Operation_REG == 'C') Display_Result_REG = X_Input_REG * Y_Input_REG;
+"145
+[; ;main.c: 145:     else if (Operation_REG == 'C') Display_Result_REG = X_Input_REG * Y_Input_REG;
 [e :U 2259 ]
 [e $ ! == -> _Operation_REG `ui -> 67 `ui 2261  ]
 [e = _Display_Result_REG * _X_Input_REG _Y_Input_REG ]
 [e $U 2262  ]
-"147
-[; ;main.c: 147:     else if (Operation_REG == 'D' && Y_Input_REG != 0) Display_Result_REG = X_Input_REG / Y_Input_REG;
+"146
+[; ;main.c: 146:     else if (Operation_REG == 'D' && Y_Input_REG != 0) Display_Result_REG = X_Input_REG / Y_Input_REG;
 [e :U 2261 ]
 [e $ ! && == -> _Operation_REG `ui -> 68 `ui != _Y_Input_REG -> 0 `i 2263  ]
 [e = _Display_Result_REG / _X_Input_REG _Y_Input_REG ]
@@ -2591,192 +2584,226 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2262 ]
 [e :U 2260 ]
 [e :U 2258 ]
-"149
-[; ;main.c: 149:     displayOnLEDs(Display_Result_REG);
+"148
+[; ;main.c: 148:     displayOnLEDs(Display_Result_REG);
 [e ( _displayOnLEDs (1 _Display_Result_REG ]
-"153
-[; ;main.c: 153:     X_Input_REG = 0;
+"152
+[; ;main.c: 152:     X_Input_REG = 0;
 [e = _X_Input_REG -> 0 `i ]
-"154
-[; ;main.c: 154:     Y_Input_REG = 0;
+"153
+[; ;main.c: 153:     Y_Input_REG = 0;
 [e = _Y_Input_REG -> 0 `i ]
-"155
-[; ;main.c: 155:     digitCount = 0;
+"154
+[; ;main.c: 154:     digitCount = 0;
 [e = _digitCount -> 0 `i ]
-"156
-[; ;main.c: 156:     isSecond = 0;
+"155
+[; ;main.c: 155:     isSecond = 0;
 [e = _isSecond -> 0 `i ]
-"157
-[; ;main.c: 157: }
+"156
+[; ;main.c: 156: }
 [e :UE 2256 ]
 }
-"167
-[; ;main.c: 167: void handleInput(char key) {
+"166
+[; ;main.c: 166: void handleInput(char key) {
 [v _handleInput `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _handleInput ]
 [v _key `uc ~T0 @X0 1 r1 ]
 [f ]
-"169
-[; ;main.c: 169:     if (key >= '0' && key <= '9') {
+"168
+[; ;main.c: 168:     if (key >= '0' && key <= '9') {
 [e $ ! && >= -> _key `ui -> 48 `ui <= -> _key `ui -> 57 `ui 2265  ]
 {
-"170
-[; ;main.c: 170:         if (isSecond == 0) {
+"169
+[; ;main.c: 169:         if (isSecond == 0) {
 [e $ ! == _isSecond -> 0 `i 2266  ]
 {
-"171
-[; ;main.c: 171:             X_Input_REG = (X_Input_REG * 10) + (key - '0');
+"170
+[; ;main.c: 170:             X_Input_REG = (X_Input_REG * 10) + (key - '0');
 [e = _X_Input_REG -> + -> * _X_Input_REG -> 10 `i `ui - -> _key `ui -> 48 `ui `i ]
-"172
-[; ;main.c: 172:             digitCount++;
+"171
+[; ;main.c: 171:             digitCount++;
 [e ++ _digitCount -> 1 `i ]
-"173
-[; ;main.c: 173:             if (digitCount == 2) {
+"172
+[; ;main.c: 172:             if (digitCount == 2) {
 [e $ ! == _digitCount -> 2 `i 2267  ]
 {
-"174
-[; ;main.c: 174:                 isSecond = 1;
+"173
+[; ;main.c: 173:                 isSecond = 1;
 [e = _isSecond -> 1 `i ]
-"175
-[; ;main.c: 175:                 digitCount = 0;
+"174
+[; ;main.c: 174:                 digitCount = 0;
 [e = _digitCount -> 0 `i ]
-"176
-[; ;main.c: 176:                 PORTD = 0x01;
+"175
+[; ;main.c: 175:                 PORTD = 0x01;
 [e = _PORTD -> -> 1 `i `uc ]
-"177
-[; ;main.c: 177:             }
+"176
+[; ;main.c: 176:             }
 }
 [e :U 2267 ]
-"178
-[; ;main.c: 178:         } else {
+"177
+[; ;main.c: 177:         } else {
 }
 [e $U 2268  ]
 [e :U 2266 ]
 {
-"179
-[; ;main.c: 179:             Y_Input_REG = (Y_Input_REG * 10) + (key - '0');
+"178
+[; ;main.c: 178:             Y_Input_REG = (Y_Input_REG * 10) + (key - '0');
 [e = _Y_Input_REG -> + -> * _Y_Input_REG -> 10 `i `ui - -> _key `ui -> 48 `ui `i ]
-"180
-[; ;main.c: 180:             digitCount++;
+"179
+[; ;main.c: 179:             digitCount++;
 [e ++ _digitCount -> 1 `i ]
-"181
-[; ;main.c: 181:             if (digitCount == 2) {
+"180
+[; ;main.c: 180:             if (digitCount == 2) {
 [e $ ! == _digitCount -> 2 `i 2269  ]
 {
-"182
-[; ;main.c: 182:                 digitCount = 0;
+"181
+[; ;main.c: 181:                 digitCount = 0;
 [e = _digitCount -> 0 `i ]
-"183
-[; ;main.c: 183:                 PORTD = 0x02;
+"182
+[; ;main.c: 182:                 PORTD = 0x02;
 [e = _PORTD -> -> 2 `i `uc ]
-"184
-[; ;main.c: 184:             }
+"183
+[; ;main.c: 183:             }
 }
 [e :U 2269 ]
-"185
-[; ;main.c: 185:         }
+"184
+[; ;main.c: 184:         }
 }
 [e :U 2268 ]
-"186
-[; ;main.c: 186:     }
+"185
+[; ;main.c: 185:     }
 }
 [e $U 2270  ]
-"189
-[; ;main.c: 189:     else if (key == 'A' || key == 'B' || key == 'C' || key == 'D') {
+"188
+[; ;main.c: 188:     else if (key == 'A' || key == 'B' || key == 'C' || key == 'D') {
 [e :U 2265 ]
 [e $ ! || || || == -> _key `ui -> 65 `ui == -> _key `ui -> 66 `ui == -> _key `ui -> 67 `ui == -> _key `ui -> 68 `ui 2271  ]
 {
-"190
-[; ;main.c: 190:         Operation_REG = key;
+"189
+[; ;main.c: 189:         Operation_REG = key;
 [e = _Operation_REG _key ]
-"191
-[; ;main.c: 191:     }
+"190
+[; ;main.c: 190:     }
 }
 [e $U 2272  ]
-"194
-[; ;main.c: 194:     else if (key == '#') {
+"193
+[; ;main.c: 193:     else if (key == '#') {
 [e :U 2271 ]
 [e $ ! == -> _key `ui -> 35 `ui 2273  ]
 {
-"195
-[; ;main.c: 195:         PORTD = 0x00;
+"194
+[; ;main.c: 194:         PORTD = 0x00;
 [e = _PORTD -> -> 0 `i `uc ]
-"196
-[; ;main.c: 196:         calculate();
+"195
+[; ;main.c: 195:         calculate();
 [e ( _calculate ..  ]
-"197
-[; ;main.c: 197:     }
+"196
+[; ;main.c: 196:     }
 }
 [e $U 2274  ]
-"200
-[; ;main.c: 200:     else if (key == '*') {
+"199
+[; ;main.c: 199:     else if (key == '*') {
 [e :U 2273 ]
 [e $ ! == -> _key `ui -> 42 `ui 2275  ]
 {
-"201
-[; ;main.c: 201:         resetAll();
+"200
+[; ;main.c: 200:         resetAll();
 [e ( _resetAll ..  ]
-"202
-[; ;main.c: 202:     }
+"201
+[; ;main.c: 201:     }
 }
 [e :U 2275 ]
 [e :U 2274 ]
 [e :U 2272 ]
 [e :U 2270 ]
-"203
-[; ;main.c: 203: }
+"202
+[; ;main.c: 202: }
 [e :UE 2264 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"212
-[; ;main.c: 212: void main(void) {
+"211
+[; ;main.c: 211: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"213
-[; ;main.c: 213:     setup();
+"212
+[; ;main.c: 212:     setup();
 [e ( _setup ..  ]
-"214
-[; ;main.c: 214:     resetAll();
+"213
+[; ;main.c: 213:     resetAll();
 [e ( _resetAll ..  ]
+"215
+[; ;main.c: 215:     char key = '0';
+[v _key `uc ~T0 @X0 1 a ]
+[e = _key -> -> 48 `ui `uc ]
 "216
-[; ;main.c: 216:     while (1) {
+[; ;main.c: 216:     handleInput(key);
+[e ( _handleInput (1 _key ]
+"217
+[; ;main.c: 217:     key = '0';
+[e = _key -> -> 48 `ui `uc ]
+"218
+[; ;main.c: 218:     handleInput(key);
+[e ( _handleInput (1 _key ]
+"219
+[; ;main.c: 219:     key = 'B';
+[e = _key -> -> 66 `ui `uc ]
+"220
+[; ;main.c: 220:     handleInput(key);
+[e ( _handleInput (1 _key ]
+"221
+[; ;main.c: 221:     key = '0';
+[e = _key -> -> 48 `ui `uc ]
+"222
+[; ;main.c: 222:     handleInput(key);
+[e ( _handleInput (1 _key ]
+"223
+[; ;main.c: 223:     key = '0';
+[e = _key -> -> 48 `ui `uc ]
+"224
+[; ;main.c: 224:     handleInput(key);
+[e ( _handleInput (1 _key ]
+"225
+[; ;main.c: 225:     key = '#';
+[e = _key -> -> 35 `ui `uc ]
+"226
+[; ;main.c: 226:     handleInput(key);
+[e ( _handleInput (1 _key ]
+"229
+[; ;main.c: 229:     while (1) {
 [e :U 2278 ]
 {
-"217
-[; ;main.c: 217:         char key = getKeyPressed();
+"230
+[; ;main.c: 230:         char key = getKeyPressed();
 [v _key `uc ~T0 @X0 1 a ]
 [e = _key ( _getKeyPressed ..  ]
-"218
-[; ;main.c: 218:         if (key != 0) {
+"231
+[; ;main.c: 231:         if (key != 0) {
 [e $ ! != -> _key `i -> 0 `i 2280  ]
 {
-"219
-[; ;main.c: 219:             handleInput(key);
+"232
+[; ;main.c: 232:             handleInput(key);
 [e ( _handleInput (1 _key ]
-"220
-[; ;main.c: 220:             _delay((unsigned long)((300)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"221
-[; ;main.c: 221:             while (getKeyPressed());
+"234
+[; ;main.c: 234:             while (getKeyPressed());
 [e $U 2281  ]
 [e :U 2282 ]
 [e :U 2281 ]
 [e $ != -> ( _getKeyPressed ..  `i -> 0 `i 2282  ]
 [e :U 2283 ]
-"222
-[; ;main.c: 222:         }
+"235
+[; ;main.c: 235:         }
 }
 [e :U 2280 ]
-"223
-[; ;main.c: 223:     }
+"236
+[; ;main.c: 236:     }
 }
 [e :U 2277 ]
 [e $U 2278  ]
 [e :U 2279 ]
-"224
-[; ;main.c: 224: }
+"237
+[; ;main.c: 237: }
 [e :UE 2276 ]
 }
