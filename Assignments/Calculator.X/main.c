@@ -58,7 +58,7 @@
  * return: N/A
  */
 void setup() {
-    // Setup keypad: RB0?RB3 as outputs (rows), RB4?RB7 as inputs (columns)
+    // Setup keypad: RB0-RB3 as outputs (rows), RB4-RB7 as inputs (columns)
     LATB = 0x0F;
     ANSELB = 0x00;
     TRISB = 0b11110000;  // Lower 4 bits output, upper 4 bits input

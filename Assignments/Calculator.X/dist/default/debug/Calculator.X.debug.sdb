@@ -29,7 +29,7 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"60 C:\Users\chris\MPLABXProjects\Calculator.X\main.c
+"60 C:\Users\chris\Documents\GitHub\Microcontroller_EE310\Assignments\Calculator.X\main.c
 [v _setup setup `(v  1 e 1 0 ]
 "80
 [v _getKeyPressed getKeyPressed `(uc  1 e 1 0 ]
@@ -73,7 +73,7 @@
 [v _PORTBbits PORTBbits `VES47  1 e 1 @16331 ]
 "46942
 [v _PORTD PORTD `VEuc  1 e 1 @16333 ]
-"107 C:\Users\chris\MPLABXProjects\Calculator.X\main.c
+"107 C:\Users\chris\Documents\GitHub\Microcontroller_EE310\Assignments\Calculator.X\main.c
 [v _X_Input_REG X_Input_REG `i  1 e 2 0 ]
 "108
 [v _Y_Input_REG Y_Input_REG `i  1 e 2 0 ]
@@ -135,7 +135,7 @@
 [v ___awdiv@divisor divisor `i  1 p 2 2 ]
 "41
 } 0
-"80 C:\Users\chris\MPLABXProjects\Calculator.X\main.c
+"80 C:\Users\chris\Documents\GitHub\Microcontroller_EE310\Assignments\Calculator.X\main.c
 [v _getKeyPressed getKeyPressed `(uc  1 e 1 0 ]
 {
 "91
