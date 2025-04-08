@@ -10,7 +10,7 @@
 ;    function using CALL, and table pointers for efficiency.
     
     
-; Inputs: RA0 (decrement switch), RA1 (increment switch)
+; Inputs: RA1 (decrement switch), RA0 (increment switch)
 ; Outputs: PORTB(RB0-RB7)
 ; Setup: The Curiosity Board, Common Cathode 7-Segment Display, Breadboard Power Supply (9v battery)
 ;   Microchip: PIC18F46K42
