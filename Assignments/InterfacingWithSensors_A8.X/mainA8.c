@@ -35,7 +35,7 @@
  *      V2.0: All features integrated, including the ability to enter and change code using the keypad
  * 
  * Useful links:
- *      V2.0 from GitHub: 
+ *      V2.0 from GitHub: https://github.com/GonzalezC-Dev/Microcontroller_EE310/tree/main/Assignments/InterfacingWithSensors_A8.X
  *      Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/PIC18(L)F26-27-45-46-47-55-56-57K42-Data-Sheet-40001919G.pdf 
  *      PIC18F Instruction Sets: https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781119448457.app4 
  *      List of Instructions: http://143.110.227.210/faridfarahmand/sonoma/courses/es310/resources/20140217124422790.pdf 
