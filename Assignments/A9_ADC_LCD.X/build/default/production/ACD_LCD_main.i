@@ -27178,26 +27178,32 @@ void main(void)
 
     TRISCbits.TRISC3 = 0;
     LATCbits.LATC3 = 0;
-# 192 "ACD_LCD_main.c"
-    LCD_String_xy(1, 0, "Voltage:");
+
+
+
+    LCD_String_xy(1, 0, "The Input Light:");
 
     while (1)
     {
         ADCON0bits.GO = 1;
         while (ADCON0bits.GO);
         digital = (ADRESH*256) | (ADRESL);
-        voltage= digital*((float)5.0/(float)(4096));
+        voltage = digital * ((float)5.0 / 4096.0);
+
+        int lux = (int)(85.19 * voltage + -135.33);
+        if (lux < 0) lux =0;
 
 
 
-        sprintf(data,"%.2f",voltage);
+        sprintf(data,"%d", lux);
 
-        strcat(data," V");
+        strcat(data," LUX    ");
         LCD_String_xy(2,4,data);
+
 
         _delay((unsigned long)((500)*(4000000/4000.0)));
     }
-
+# 211 "ACD_LCD_main.c"
 }
 
 

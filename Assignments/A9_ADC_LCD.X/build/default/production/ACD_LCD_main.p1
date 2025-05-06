@@ -2628,45 +2628,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "163
 [; ;ACD_LCD_main.c: 163:     LATCbits.LATC3 = 0;
 [e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-"192
-[; ;ACD_LCD_main.c: 192:     LCD_String_xy(1, 0, "Voltage:");
+"167
+[; ;ACD_LCD_main.c: 167:     LCD_String_xy(1, 0, "The Input Light:");
 [e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 1C ]
-"194
-[; ;ACD_LCD_main.c: 194:     while (1)
+"169
+[; ;ACD_LCD_main.c: 169:     while (1)
 [e :U 2254 ]
-"195
-[; ;ACD_LCD_main.c: 195:     {
+"170
+[; ;ACD_LCD_main.c: 170:     {
 {
-"196
-[; ;ACD_LCD_main.c: 196:         ADCON0bits.GO = 1;
+"171
+[; ;ACD_LCD_main.c: 171:         ADCON0bits.GO = 1;
 [e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"197
-[; ;ACD_LCD_main.c: 197:         while (ADCON0bits.GO);
+"172
+[; ;ACD_LCD_main.c: 172:         while (ADCON0bits.GO);
 [e $U 2256  ]
 [e :U 2257 ]
 [e :U 2256 ]
 [e $ != -> . . _ADCON0bits 0 0 `i -> 0 `i 2257  ]
 [e :U 2258 ]
-"198
-[; ;ACD_LCD_main.c: 198:         digital = (ADRESH*256) | (ADRESL);
+"173
+[; ;ACD_LCD_main.c: 173:         digital = (ADRESH*256) | (ADRESL);
 [e = _digital | * -> _ADRESH `i -> 256 `i -> _ADRESL `i ]
-"199
-[; ;ACD_LCD_main.c: 199:         voltage= digital*((float)5.0/(float)(4096));
-[e = _voltage * -> _digital `f / -> .5.0 `f -> -> 4096 `i `f ]
-"203
-[; ;ACD_LCD_main.c: 203:         sprintf(data,"%.2f",voltage);
-[e ( _sprintf (1 , (. , &U _data :s 2C -> _voltage `d ]
-"205
-[; ;ACD_LCD_main.c: 205:         strcat(data," V");
+"174
+[; ;ACD_LCD_main.c: 174:         voltage = digital * ((float)5.0 / 4096.0);
+[e = _voltage -> * -> _digital `d / -> -> .5.0 `f `d .4096.0 `f ]
+"176
+[; ;ACD_LCD_main.c: 176:         int lux = (int)(85.19 * voltage + -135.33);
+[v _lux `i ~T0 @X0 1 a ]
+[e = _lux -> + * .85.19 -> _voltage `d -U .135.33 `i ]
+"177
+[; ;ACD_LCD_main.c: 177:         if (lux < 0) lux =0;
+[e $ ! < _lux -> 0 `i 2259  ]
+[e = _lux -> 0 `i ]
+[e :U 2259 ]
+"181
+[; ;ACD_LCD_main.c: 181:         sprintf(data,"%d", lux);
+[e ( _sprintf (1 , (. , &U _data :s 2C _lux ]
+"183
+[; ;ACD_LCD_main.c: 183:         strcat(data," LUX    ");
 [e ( _strcat (2 , &U _data :s 3C ]
-"206
-[; ;ACD_LCD_main.c: 206:         LCD_String_xy(2,4,data);
+"184
+[; ;ACD_LCD_main.c: 184:         LCD_String_xy(2,4,data);
 [e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 4 `i `uc -> &U _data `*Cuc ]
-"208
-[; ;ACD_LCD_main.c: 208:         _delay((unsigned long)((500)*(4000000/4000.0)));
+"187
+[; ;ACD_LCD_main.c: 187:         _delay((unsigned long)((500)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"209
-[; ;ACD_LCD_main.c: 209:     }
+"188
+[; ;ACD_LCD_main.c: 188:     }
 }
 [e :U 2253 ]
 [e $U 2254  ]
@@ -2722,7 +2731,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _IVTBASEL -> -> 8 `i `uc ]
 "231
 [; ;ACD_LCD_main.c: 231: }
-[e :UE 2259 ]
+[e :UE 2260 ]
 }
 "235
 [; ;ACD_LCD_main.c: 235: void LCD_Init()
@@ -2755,7 +2764,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _LCD_Command (1 -> -> 6 `i `uc ]
 "244
 [; ;ACD_LCD_main.c: 244: }
-[e :UE 2260 ]
+[e :UE 2261 ]
 }
 "246
 [; ;ACD_LCD_main.c: 246: void LCD_Clear()
@@ -2770,7 +2779,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _LCD_Command (1 -> -> 1 `i `uc ]
 "249
 [; ;ACD_LCD_main.c: 249: }
-[e :UE 2261 ]
+[e :UE 2262 ]
 }
 "251
 [; ;ACD_LCD_main.c: 251: void LCD_Command(char cmd )
@@ -2805,7 +2814,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _MSdelay (1 -> -> 3 `i `ui ]
 "259
 [; ;ACD_LCD_main.c: 259: }
-[e :UE 2262 ]
+[e :UE 2263 ]
 }
 "261
 [; ;ACD_LCD_main.c: 261: void LCD_Char(char dat)
@@ -2840,7 +2849,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _MSdelay (1 -> -> 1 `i `ui ]
 "269
 [; ;ACD_LCD_main.c: 269: }
-[e :UE 2263 ]
+[e :UE 2264 ]
 }
 "272
 [; ;ACD_LCD_main.c: 272: void LCD_String(const char *msg)
@@ -2857,8 +2866,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "274
 [; ;ACD_LCD_main.c: 274:     while((*msg)!=0)
-[e $U 2265  ]
-[e :U 2266 ]
+[e $U 2266  ]
+[e :U 2267 ]
 "275
 [; ;ACD_LCD_main.c: 275:     {
 {
@@ -2871,14 +2880,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "278
 [; ;ACD_LCD_main.c: 278:         }
 }
-[e :U 2265 ]
+[e :U 2266 ]
 "274
 [; ;ACD_LCD_main.c: 274:     while((*msg)!=0)
-[e $ != -> *U _msg `i -> 0 `i 2266  ]
-[e :U 2267 ]
+[e $ != -> *U _msg `i -> 0 `i 2267  ]
+[e :U 2268 ]
 "279
 [; ;ACD_LCD_main.c: 279: }
-[e :UE 2264 ]
+[e :UE 2265 ]
 }
 "281
 [; ;ACD_LCD_main.c: 281: void LCD_String_xy(char row,char pos,const char *msg)
@@ -2901,7 +2910,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _location -> -> 0 `i `uc ]
 "284
 [; ;ACD_LCD_main.c: 284:     if(row<=1)
-[e $ ! <= -> _row `i -> 1 `i 2269  ]
+[e $ ! <= -> _row `i -> 1 `i 2270  ]
 "285
 [; ;ACD_LCD_main.c: 285:     {
 {
@@ -2914,10 +2923,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "288
 [; ;ACD_LCD_main.c: 288:     }
 }
-[e $U 2270  ]
+[e $U 2271  ]
 "289
 [; ;ACD_LCD_main.c: 289:     else
-[e :U 2269 ]
+[e :U 2270 ]
 "290
 [; ;ACD_LCD_main.c: 290:     {
 {
@@ -2930,13 +2939,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "293
 [; ;ACD_LCD_main.c: 293:     }
 }
-[e :U 2270 ]
+[e :U 2271 ]
 "294
 [; ;ACD_LCD_main.c: 294:     LCD_String(msg);
 [e ( _LCD_String (1 _msg ]
 "296
 [; ;ACD_LCD_main.c: 296: }
-[e :UE 2268 ]
+[e :UE 2269 ]
 }
 "298
 [; ;ACD_LCD_main.c: 298: void MSdelay(unsigned int val)
@@ -2959,27 +2968,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ACD_LCD_main.c: 301:         for(i=0;i<val;i++)
 {
 [e = _i -> -> 0 `i `ui ]
-[e $U 2275  ]
-[e :U 2272 ]
+[e $U 2276  ]
+[e :U 2273 ]
 "302
 [; ;ACD_LCD_main.c: 302:             for(j=0;j<165;j++);
 {
 [e = _j -> -> 0 `i `ui ]
-[e $ < _j -> -> 165 `i `ui 2276  ]
-[e $U 2277  ]
-[e :U 2276 ]
-[e ++ _j -> -> 1 `i `ui ]
-[e $ < _j -> -> 165 `i `ui 2276  ]
+[e $ < _j -> -> 165 `i `ui 2277  ]
+[e $U 2278  ]
 [e :U 2277 ]
+[e ++ _j -> -> 1 `i `ui ]
+[e $ < _j -> -> 165 `i `ui 2277  ]
+[e :U 2278 ]
 }
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 2275 ]
-[e $ < _i _val 2272  ]
-[e :U 2273 ]
+[e :U 2276 ]
+[e $ < _i _val 2273  ]
+[e :U 2274 ]
 }
 "303
 [; ;ACD_LCD_main.c: 303: }
-[e :UE 2271 ]
+[e :UE 2272 ]
 }
 "305
 [; ;ACD_LCD_main.c: 305: void ADC_Init(void)
@@ -3030,9 +3039,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _ADCON0bits 0 6 -> -> 1 `i `uc ]
 "327
 [; ;ACD_LCD_main.c: 327: }
-[e :UE 2279 ]
+[e :UE 2280 ]
 }
-[p f _sprintf 8462336 ]
-[a 2C 37 46 50 102 0 ]
-[a 3C 32 86 0 ]
-[a 1C 86 111 108 116 97 103 101 58 0 ]
+[p f _sprintf 8388736 ]
+[a 2C 37 100 0 ]
+[a 1C 84 104 101 32 73 110 112 117 116 32 76 105 103 104 116 58 0 ]
+[a 3C 32 76 85 88 32 32 32 32 0 ]

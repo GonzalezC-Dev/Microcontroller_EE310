@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "ACD_LCD_main.c" 2
-# 14 "ACD_LCD_main.c"
+# 55 "ACD_LCD_main.c"
 #pragma config FEXTOSC = LP
 #pragma config RSTOSC = EXTOSC
 
@@ -26921,7 +26921,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 64 "ACD_LCD_main.c" 2
+# 105 "ACD_LCD_main.c" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
@@ -27076,7 +27076,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 67 "ACD_LCD_main.c" 2
+# 108 "ACD_LCD_main.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -27134,12 +27134,11 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 68 "ACD_LCD_main.c" 2
-# 81 "ACD_LCD_main.c"
+# 109 "ACD_LCD_main.c" 2
+# 122 "ACD_LCD_main.c"
 int digital;
 float voltage;
 char data[10];
-int halt = 0;
 
 void ADC_Init(void);
 void LCD_Init();
@@ -27156,7 +27155,12 @@ void __attribute__((picinterrupt(("irq(7), base(0x4008)")))) IOC_ISR(void)
 {
     if (IOCCFbits.IOCCF2)
     {
-        halt = 1;
+        for (int i = 0; i < 20; i++) {
+                LATCbits.LATC3 = 1;
+                _delay((unsigned long)((250)*(4000000/4000.0)));
+                LATCbits.LATC3 = 0;
+                _delay((unsigned long)((250)*(4000000/4000.0)));
+            }
         IOCCFbits.IOCCF2 = 0;
         PIR0bits.IOCIF = 0;
     }
@@ -27167,43 +27171,39 @@ void __attribute__((picinterrupt(("irq(7), base(0x4008)")))) IOC_ISR(void)
 
 void main(void)
 {
+
     ADC_Init();
     LCD_Init();
     IOCC2_Init();
 
     TRISCbits.TRISC3 = 0;
     LATCbits.LATC3 = 0;
-# 142 "ACD_LCD_main.c"
-    LCD_String_xy(1, 0, "Voltage:");
+
+
+
+    LCD_String_xy(1, 0, "The Input Light:");
 
     while (1)
     {
-        if (halt) {
-
-            for (int i = 0; i < 20; i++) {
-                LATCbits.LATC3 = 1;
-                _delay((unsigned long)((250)*(4000000/4000.0)));
-                LATCbits.LATC3 = 0;
-                _delay((unsigned long)((250)*(4000000/4000.0)));
-            }
-            halt = 0;
-        }
-
         ADCON0bits.GO = 1;
         while (ADCON0bits.GO);
         digital = (ADRESH*256) | (ADRESL);
-        voltage= digital*((float)5.0/(float)(4096));
+        voltage = digital * ((float)5.0 / 4096.0);
+
+        int lux = (int)(85.19 * voltage + -135.33);
+        if (lux < 0) lux =0;
 
 
 
-        sprintf(data,"%.2f",voltage);
+        sprintf(data,"%d", lux);
 
-        strcat(data," V");
+        strcat(data," LUX    ");
         LCD_String_xy(2,4,data);
+
 
         _delay((unsigned long)((500)*(4000000/4000.0)));
     }
-
+# 211 "ACD_LCD_main.c"
 }
 
 

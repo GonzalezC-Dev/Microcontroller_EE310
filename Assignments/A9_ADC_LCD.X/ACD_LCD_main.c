@@ -13,9 +13,9 @@
  *  - Pushbutton (digital interrupt) to RC2 (Interrupt-On-Change)
  * Outputs:
  *  - LCD 20x2 Character Display
- *      ? RS to RD0
- *      ? EN to RD1
- *      ? D0-D7 to RB0-RB7
+ *      - RS to RD0
+ *      - EN to RD1
+ *      - D0-D7 to RB0-RB7
  *  - LED to RC3 (blinks on interrupt)
  * 
  * Setup: C-Simulator
@@ -164,49 +164,49 @@ void main(void)
 
     
 /****************************** THIS IS PART 2 ***************************/   
-//    LCD_String_xy(1, 0, "The Input Light:");          // Display top label
-//
-//    while (1)
-//    {
-//        ADCON0bits.GO = 1;                            //Start conversion
-//        while (ADCON0bits.GO);                        //Wait for conversion done
-//        digital = (ADRESH*256) | (ADRESL);            // Combine 8-bit LSB and 2-bit MSB
-//        voltage = digital * ((float)Vref / 4096.0); 
-//        
-//        int lux = (int)(85.19 * voltage + -135.33);   // Conversion using measured 2 measured values and y=mx+b
-//        if (lux < 0) lux =0;                          // Don't want negatives
-//
-//        //print on LCD 
-//        /*It is used to convert integer value to ASCII string*/    
-//        sprintf(data,"%d", lux);
-//    
-//        strcat(data," LUX    ");      //Concatenate result and unit to print
-//        LCD_String_xy(2,4,data);      // Display LUX value
-//
-//        
-//        __delay_ms(500);  
-//    }
+    LCD_String_xy(1, 0, "The Input Light:");          // Display top label
+
+    while (1)
+    {
+        ADCON0bits.GO = 1;                            //Start conversion
+        while (ADCON0bits.GO);                        //Wait for conversion done
+        digital = (ADRESH*256) | (ADRESL);            // Combine 8-bit LSB and 2-bit MSB
+        voltage = digital * ((float)Vref / 4096.0); 
+        
+        int lux = (int)(85.19 * voltage + -135.33);   // Conversion using measured 2 measured values and y=mx+b
+        if (lux < 0) lux =0;                          // Don't want negatives
+
+        //print on LCD 
+        /*It is used to convert integer value to ASCII string*/    
+        sprintf(data,"%d", lux);
+    
+        strcat(data," LUX    ");      //Concatenate result and unit to print
+        LCD_String_xy(2,4,data);      // Display LUX value
+
+        
+        __delay_ms(500);  
+    }
 /****************************** END OF PART 2 ***************************/
     
 /****************************** THIS IS PART 1 ***************************/
-    LCD_String_xy(1, 0, "Voltage:");        // Display top label
-    
-    while (1)
-    {
-        ADCON0bits.GO = 1;                  // Start conversion
-        while (ADCON0bits.GO);              // Wait for conversion done
-        digital = (ADRESH*256) | (ADRESL);  // Combine 8-bit LSB and 2-bit MSB
-        voltage= digital*((float)Vref/(float)(4096)); 
-        
-        //print on LCD 
-        /*It is used to convert integer value to ASCII string*/
-        sprintf(data,"%.2f",voltage);
-
-        strcat(data," V");          // Concatenate result and unit to print
-        LCD_String_xy(2,4,data);    // Send string data for printing
-        
-        __delay_ms(500);            // Small delay to avoid flickering on the display
-    }
+//    LCD_String_xy(1, 0, "Voltage:");        // Display top label
+//    
+//    while (1)
+//    {
+//        ADCON0bits.GO = 1;                  // Start conversion
+//        while (ADCON0bits.GO);              // Wait for conversion done
+//        digital = (ADRESH*256) | (ADRESL);  // Combine 8-bit LSB and 2-bit MSB
+//        voltage= digital*((float)Vref/(float)(4096)); 
+//        
+//        //print on LCD 
+//        /*It is used to convert integer value to ASCII string*/
+//        sprintf(data,"%.2f",voltage);
+//
+//        strcat(data," V");          // Concatenate result and unit to print
+//        LCD_String_xy(2,4,data);    // Send string data for printing
+//        
+//        __delay_ms(500);            // Small delay to avoid flickering on the display
+//    }
 /****************************** END OF PART 1 ***************************/
 }
 
